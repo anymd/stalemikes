@@ -1,0 +1,67 @@
+<%= form_for @show do |f| %>
+
+<ul>	
+<li><%= f.label 'show name' %></li>
+<li><%= f.text_field :name %></li>
+
+<li><%= f.label :venue %></li>
+<li><%= f.text_field :venue %></li>
+
+<li><%= f.label :address %></li>
+<li><%= f.text_field :address %></li>
+
+<li><%= f.label :city %></li>
+<li><%= f.text_field :city %></li>
+
+<li><%= f.label :state %></li>
+<li><%= f.text_field :state %></li>
+
+<li><%= f.label :zip %></li>
+<li><%= f.text_field :zip %></li>
+
+<li><%= f.label :country %></li>
+<li><%= f.text_field :country %></li>
+
+<li><%= f.label :web_site %></li>
+<li><%= f.text_field :web_site %></li>
+
+<li><%= f.label :facebook_link %></li>
+<li><%= f.text_field :facebook_link %></li>
+
+<li><%= f.label :twitter_name %></li>
+<li><%= f.text_field :twitter_name %></li>
+
+<li><%= f.label :phone %></li>
+<li><%= f.text_field :phone %></li>
+
+<li><%= f.label :day %></li>
+<li><%= f.text_field :day %></li>
+
+<li><%= f.label :frequency %></li>
+<li><%= f.text_field :frequency %></li>
+
+<li><%= f.label :show_type %></li>
+<li><%= f.text_field :show_type %></li>
+
+<li><%= f.label :signup_time %></li>
+<li><%= f.text_field :signup_time %></li>
+
+<li><%= f.label :show_time %></li>
+<li><%= f.text_field :show_time %></li>
+
+<li><%= f.label :host_name %></li>
+<li><%= f.text_field :host_name %></li>
+
+<li><%= f.label :price %></li>
+<li><%= f.text_field :price %></li>
+
+<li><%= f.label :notes %></li>
+<li><%= f.text_field :notes %></li>
+
+<li><%= f.label :filepicker_url, "Upload show image:" %>
+    <%= f.filepicker_field :filepicker_url %>
+</li>
+
+<li><%= f.submit %></li>
+
+<% end %>

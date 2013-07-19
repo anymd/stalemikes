@@ -1,0 +1,35 @@
+<div id="container" class="js-masonry">
+
+  <% @shows.each do |show| %>
+  <% days = calculate_age(show.updated_at) %> 
+    <div class="show" style="color: rgb(<%= days + 100 %>,<%= days + 100 %>,<%= days + 100 %>); border: 1px solid rgb(<%= days + 100 %>,<%= days + 100 %>,<%= days + 100 %>);">
+      
+      <div class="image">
+        <% if show.filepicker_url %>
+          <%= filepicker_image_tag(show.filepicker_url, w: 60, h: 60, fit: 'clip') %>
+        <% else %>
+          <img src="http://placekitten.com/g/60/60" style="opacity:<%= 1 / ((days + 0.01) * 0.4) %>;">
+        <% end %>  
+      </div>
+
+      <div class="info">
+        <div><b><%= show.venue %></b></div>
+        <div><%= show.name %></div>
+        <div><%= show.city %><% if show.state%>,<% end %> <%= show.state %></div>
+        <br>
+      </div>  
+        <div>
+          <!-- <img src="http://maps.google.com/maps/api/staticmap?zoom=11&markers=<%= show.address %><%= show.city %><%= show.state %>&size=240x80&sensor=false"> -->
+        </div>
+
+      <div class="last-verified"><b>last verified:</b><br>
+        <span class="verified"><%= time_ago_in_words(show.updated_at) %> ago
+          <div>
+          <% if show.updated_at > DateTime.now - 1.month %><%= image_tag 'fresh.png' %><% end %></div>
+      </div>
+
+    </div>
+
+  <% end %>
+
+</div>

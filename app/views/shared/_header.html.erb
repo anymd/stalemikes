@@ -1,0 +1,20 @@
+<div id="header">
+
+  <div class="logo"><%= link_to image_tag('logo.png', :width => 240), root_path %></div>
+
+  <div>
+		<ul class="menu">
+		 
+		  <% if current_user %>
+		    <li><%= link_to 'all shows', root_path %></li>	
+		    <li><%= link_to 'my shows', user_path(current_user) %></li>	
+		    <li><%= link_to 'list a show', new_show_path %></li>
+		    <li>signed in as <strong><%= current_user.name.downcase %></strong></li>
+		    <li><%= link_to "sign out", signout_path, id: "sign_out" %></li>
+		  <% else %>
+		    <li><%= link_to "sign in with facebook", "/auth/facebook", id:   "sign_in" %></li>
+		  <% end %>
+		</ul>
+  </div>
+
+</div>

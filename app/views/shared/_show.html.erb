@@ -1,0 +1,36 @@
+<% if @show.user == current_user %>
+<p><%= link_to "edit", edit_show_path(@show) %></p>
+
+<p>mark this show as:</p>
+<ul>
+	<li>still happening</li>
+  <li>on hiatus</li>
+  <li>dead</li>
+  <li>[] hide it from site</li>
+</ul>  
+
+<% end %>
+<table border="1">
+
+<p>Show last updated <%= time_ago_in_words(@show.updated_at) %> ago</p>
+
+  <tr><td>status</td><td><%= @show.status %></td></tr>
+	<% if @show.name %><tr><td>name</td><td><%= @show.name %></td></tr><% end %>	
+	<% if @show.venue %><tr><td>venue</td><td><%= @show.venue %></td></tr><% end %>
+	<% if @show.address %><tr><td>adress</td><td><%= @show.address %></td></tr><% end %>
+	<% if @show.city %><tr><td>city</td><td><%= @show.city %>, <%= @show.state %> <%= @show.zip %></td></tr><% end %>
+	<% if @show.country %><tr><td>country</td><td><%= @show.country %></td></tr><% end %>
+	<% if @show.phone != "" %><tr><td>phone</td><td><%= @show.phone %></td></tr><% end %>
+	<% if @show.web_site != "" %><tr><td>web site</td><td><%= @show.web_site %></td></tr><% end %>
+	<% if @show.address != "" %><tr><td>facebook</td><td><%= @show.facebook_link %></td></tr><% end %>
+	<% if @show.twitter_name != "" %><tr><td>twitter</td><td><%= @show.twitter_name %></td></tr><% end %>
+	<% if @show.day != "" %><tr><td>day of week</td><td><%= @show.day %></td></tr><% end %>
+	<% if @show.frequency != "" %><tr><td>frequency</td><td><%= @show.frequency %></td></tr><% end %>
+	<% if @show.show_type != "" %><tr><td>type</td><td><%= @show.show_type %></td></tr><% end %>
+	<% if @show.signup_time != "" %><tr><td>signup time</td><td><%= @show.signup_time %></td></tr><% end %>			
+	<% if @show.show_time != "" %><tr><td>show time</td><td><%= @show.show_time %></td></tr><% end %>
+	<% if @show.host_name != "" %><tr><td>host name</td><td><%= @show.host_name %></td></tr><% end %>			
+	<% if @show.price != "" %><tr><td>price</td><td><%= @show.price %></td></tr><% end %>			
+	<% if @show.notes != "" %><tr><td>notes</td><td><%= @show.notes %></td></tr><% end %>
+</table>
+<hr>

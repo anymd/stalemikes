@@ -1,0 +1,9 @@
+
+
+<% if flash[:notice] %>
+    <div id="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<div class="alert alert-info"><i class="icon-info-sign"></i> Stale Mikes requires bookers to regularly verify their show is still alive and well.  Otherwise, it fades away!</div>
+
+<%= render 'shared/shows' %>

@@ -1,0 +1,157 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+body {
+  margin: 0px;
+  font-family: 'Quattrocento Sans', sans-serif;
+}
+
+.container {
+  padding: 10px;
+}
+
+#container .show div {
+  padding: 2px;
+}
+
+.show {
+  cursor: pointer;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
+
+.show:hover {
+  background-color: #fffdcc;
+}
+
+.show:hover div {
+  color: black;
+}
+
+.menu {
+  float: right;
+}
+
+.menu li {
+  display: inline;
+  padding-left: 10px;
+}
+
+.logo {
+  font-size: 34px;
+  line-height: 30px;
+  float: left;
+  margin-top: 5px;
+  color: #E6EFEE;
+}
+
+.about {
+  border: 1px solid #fff770;
+  width: 90%;
+  max-width: 900px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #fffdcc;
+}
+
+.alert {
+  background-color: #f0f9ff;
+  border: 1px solid #ccf3ff;
+  color: #007dbc;
+  padding: 10px;
+}
+
+.tagline {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.container {
+  clear: both;
+}
+
+#header {
+  background-color: #4E4E4E;
+  height: 66px;
+	font-size: 13px;
+  color: white;
+  padding: 10px;
+  border-bottom: 5px solid #E6EFEE;
+}
+
+#header a {
+  color: white;
+  text-decoration: none;
+}
+
+#header a:hover {
+  text-decoration: underline;
+}
+
+.shows li a {
+  color: green;
+  text-decoration: none;
+  font-size: 13px;
+  border-bottom: 1px dotted gray;
+}
+
+.shows li {
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.updated {
+  font-size: 10px;
+  color: #999;
+}
+
+.show {
+  padding: 20px;
+  margin: 10px;
+  width: 250px;
+  float: left;
+}
+
+.verified {
+  font-size: 22px;
+}
+
+.image {
+  float: left;
+}
+
+.image img {
+  border: 1px solid #ccc;
+  padding: 2px;
+}
+
+.info {
+  float: right;
+}
+
+.last-verified {
+  clear: both;
+}
+
+div {
+  word-wrap: break-word;
+}
+
+.fresh {
+
+}
+
+
+
