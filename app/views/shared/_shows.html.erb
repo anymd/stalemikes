@@ -1,10 +1,10 @@
 <div id="container" class="js-masonry">
 
   <% @shows.each do |show| %>
-    <div class="show">
+    <div class="show<% if show.updated_at > DateTime.now - 1.month %> fresh-show<% end %>">
     
       <div class="info">
-        <div><b><%= show.venue %></b></div>
+        <div><b><%= link_to show.venue, show_path(show) %></b></div>
         <div><%= show.name %></div>
         <div><%= show.city %><% if show.state%>,<% end %> <%= show.state %></div>
         <div><%= show.day %></div>
@@ -31,6 +31,7 @@
             <% if show.updated_at > DateTime.now - 1.month %><%= image_tag 'fresh.png' %><% end %></div>
         </div>
       </div>
+              <%= link_to 'edit', edit_show_path(show) %>
     </div>
 
   <% end %>

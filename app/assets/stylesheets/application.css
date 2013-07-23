@@ -19,6 +19,7 @@
 body {
   margin: 0px;
   font-family: 'Quattrocento Sans', sans-serif;
+  background-color: #F9F9F9;
 }
 
 .container {
@@ -36,7 +37,8 @@ body {
   cursor: pointer;
   -moz-border-radius: 15px;
   border-radius: 15px;
-  border: 2px dotted grey;
+  border: 1px solid grey;
+  background-color: white;
 }
 
 .show:hover {
@@ -160,7 +162,10 @@ div {
 
 .fresh {
   float: right;
+}
 
+div.fresh-show {
+  background-color: #effce5;
 }
 
 

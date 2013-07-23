@@ -28,7 +28,7 @@ class ShowsController < ApplicationController
     	@show = Show.find(params[:id])
     	@show.destroy
   	end
-    redirect_to :back, :notice => "the show has been deleted"
+    redirect_to user_path, :notice => "the show has been deleted"
   end
 
   def update

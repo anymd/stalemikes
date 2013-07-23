@@ -45,7 +45,8 @@ gem 'pg'
 
 gem 'masonry-rails'
 gem "filepicker-rails", git: "git://github.com/maxtilford/filepicker-rails.git"
-
+gem 'active_enum'
+gem 'formtastic'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -63,6 +64,7 @@ gem 'jquery-rails'
 gem 'omniauth-facebook', '~> 1.4.1'
 gem 'faker'
 gem 'rails-timeago'
+gem 'country-select'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'

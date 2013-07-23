@@ -5,6 +5,9 @@ class Show < ActiveRecord::Base
   belongs_to :user
   has_one :metro_area
 
-  
+  enumerate :show_type
+  enumerate :state
+  enumerate :frequency
+  enumerate :day
 
 end
