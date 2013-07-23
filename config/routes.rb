@@ -5,6 +5,8 @@ Stagetime::Application.routes.draw do
 
   root :to => "pages#index"
 
+  match "/filter" => 'pages#filter'
+
   resources :shows
   resources :users
 

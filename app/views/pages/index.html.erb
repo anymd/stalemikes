@@ -5,5 +5,41 @@
 <% end %>
 
 <div class="alert alert-info"><i class="icon-info-sign"></i> Stale Mikes requires bookers to regularly verify their show is still alive and well.  Otherwise, it fades away!</div>
+<br>
 
+<div class="filter">
+
+  <div class="metro-area">  
+    <%= link_to 'All', request.parameters.merge({:metro => ''}) %> 
+    <% @metro_areas.each do |metro_area| %>
+      <%= link_to metro_area.name, request.parameters.merge({:metro => metro_area.id}) %> 
+    <% end %>
+  </div>
+
+  <div class="day">  
+    <%= link_to 'Any', request.parameters.merge({:day => ''}) %> 
+    <%= link_to 'Sunday', request.parameters.merge({:day => 'Sunday'}) %>
+    <%= link_to 'Monday', request.parameters.merge({:day => 'Monday'}) %>
+    <%= link_to 'Tuesday', request.parameters.merge({:day => 'Tuesday'}) %>
+    <%= link_to 'Wednesday', request.parameters.merge({:day => 'Wednesday'}) %>
+    <%= link_to 'Thursday', request.parameters.merge({:day => 'Thursday'}) %>
+    <%= link_to 'Friday', request.parameters.merge({:day => 'Friday'}) %>
+    <%= link_to 'Saturday', request.parameters.merge({:day => 'Saturday'}) %>
+  </div>
+
+  <div class="day">  
+    <%= link_to 'Any', request.parameters.merge({:type => ''}) %> 
+    <%= link_to 'Open', request.parameters.merge({:type => 'open mic'}) %>
+    <%= link_to 'Booked', request.parameters.merge({:type => 'booked'}) %>
+  </div>
+
+</div>
+
+<br>
+<%= debug params %>
+
+<div id="shows">
 <%= render 'shared/shows' %>
+</div>
+
+

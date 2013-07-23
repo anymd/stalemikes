@@ -11,5 +11,5 @@ require 'date'
   	return days.to_i.abs
   
   end
-
+  
 end

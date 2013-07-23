@@ -12,6 +12,10 @@
  *= require_tree .
  */
 
+/** {
+  border: 1px solid black;
+}*/
+
 body {
   margin: 0px;
   font-family: 'Quattrocento Sans', sans-serif;
@@ -25,10 +29,14 @@ body {
   padding: 2px;
 }
 
+#shows {
+}
+
 .show {
   cursor: pointer;
   -moz-border-radius: 15px;
   border-radius: 15px;
+  border: 2px dotted grey;
 }
 
 .show:hover {
@@ -118,9 +126,9 @@ body {
 }
 
 .show {
-  padding: 20px;
+  padding: 10px;
   margin: 10px;
-  width: 250px;
+  width: 300px;
   float: left;
 }
 
@@ -129,7 +137,7 @@ body {
 }
 
 .image {
-  float: left;
+  float: right;
 }
 
 .image img {
@@ -138,7 +146,8 @@ body {
 }
 
 .info {
-  float: right;
+  float: left;
+  max-width: 180px;
 }
 
 .last-verified {
@@ -150,6 +159,7 @@ div {
 }
 
 .fresh {
+  float: right;
 
 }
 
