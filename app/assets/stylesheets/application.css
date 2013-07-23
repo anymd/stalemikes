@@ -19,7 +19,7 @@
 body {
   margin: 0px;
   font-family: 'Quattrocento Sans', sans-serif;
-  background-color: #F9F9F9;
+  background-color: #efefef;
 }
 
 .container {
@@ -35,9 +35,9 @@ body {
 
 .show {
   cursor: pointer;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
-  border: 1px solid grey;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
   background-color: white;
 }
 
@@ -165,8 +165,13 @@ div {
 }
 
 div.fresh-show {
-  background-color: #effce5;
+
 }
 
+div.shadow {
+    -webkit-box-shadow: 0 5px 6px -6px #777;
+     -moz-box-shadow: 0 5px 6px -6px #777;
+          box-shadow: 0 5px 6px -6px #777;
+}
 
 
