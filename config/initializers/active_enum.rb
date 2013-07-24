@@ -19,8 +19,8 @@ end
 ActiveEnum.define do
 
   enum(:show_type) do
-    value 1 => 'open mic'
-    value 2 => 'pre-booked'
+    value 1 => 'Open mic'
+    value 2 => 'Pre-booked'
   end
 
   enum(:frequency) do

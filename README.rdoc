@@ -1,10 +1,9 @@
 notes:
 
-filters:
-metro area
-keyword search by city
-day of week
-booked v. open
+issues:
+edit show does not prepopulate existing values
+
+need model validations
 
 display options:
 show map by show on home page (off by default)

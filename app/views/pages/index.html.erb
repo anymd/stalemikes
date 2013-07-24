@@ -1,5 +1,6 @@
 
 
+
 <%= render 'shared/notice' %>
 
 <div class="alert alert-info"><i class="icon-info-sign"></i> Stale Mikes requires bookers to regularly verify their show is still alive and well.  Otherwise, it fades away!</div>
@@ -16,19 +17,18 @@
 
   <div class="day">  
     <%= link_to 'Any', request.parameters.merge({:day => ''}) %> 
-    <%= link_to 'Sunday', request.parameters.merge({:day => 'Sunday'}) %>
-    <%= link_to 'Monday', request.parameters.merge({:day => 'Monday'}) %>
-    <%= link_to 'Tuesday', request.parameters.merge({:day => 'Tuesday'}) %>
-    <%= link_to 'Wednesday', request.parameters.merge({:day => 'Wednesday'}) %>
-    <%= link_to 'Thursday', request.parameters.merge({:day => 'Thursday'}) %>
-    <%= link_to 'Friday', request.parameters.merge({:day => 'Friday'}) %>
-    <%= link_to 'Saturday', request.parameters.merge({:day => 'Saturday'}) %>
+    
+    <% Day.to_select.each do |day| %>
+      <%= link_to day[0], request.parameters.merge({:day => day[1]}) %>
+    <% end %>
   </div>
 
-  <div class="day">  
+  <div class="type">  
     <%= link_to 'Any', request.parameters.merge({:type => ''}) %> 
-    <%= link_to 'Open', request.parameters.merge({:type => 'open mic'}) %>
-    <%= link_to 'Booked', request.parameters.merge({:type => 'booked'}) %>
+    
+    <% ShowType.to_select.each do |show_type| %>
+      <%= link_to show_type[0], request.parameters.merge({:type => show_type[1]}) %>
+    <% end %>
   </div>
 
 </div>

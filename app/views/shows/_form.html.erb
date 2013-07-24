@@ -1,4 +1,6 @@
 <%= semantic_form_for @show do |f| %>
+
+    <%= f.input :metro_area_id, :as => :select, :collection => MetroArea.all %>
     <%= f.input 'name', :label => 'Show Name' %>
     <%= f.input 'venue', :label => 'Venue' %>
     <%= f.input 'address', :label => 'Adress' %>
@@ -9,10 +11,10 @@
     <%= f.input 'web_site', :label => 'Show Web Site' %>
     <%= f.input 'facebook_link', :label => 'Facebook Link' %>
     <%= f.input 'twitter_name', :label => 'Twitter Name' %>
-    <%= f.input 'phone', :label => 'Phone Number' %>
+    <%= f.input :phone, :as => :phone, :label => 'Phone Number' %>
     <%= f.input 'day', :label => 'Day' %>
     <%= f.input 'frequency', :label => 'Frequency' %>
-    <%= f.input 'show_type', :label => 'Type' %>
+    <%= f.input :show_type, :as => :radio, :label => 'Type', :collection => ShowType.to_select %>
     <%= f.input 'signup_time', :label => 'Signup Time' %>
     <%= f.input 'show_time', :label => 'Show Time' %>
     <%= f.input 'host_name', :label => 'Host Name' %>
