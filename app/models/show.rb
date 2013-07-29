@@ -5,6 +5,8 @@ class Show < ActiveRecord::Base
   belongs_to :user
   has_one :metro_area
 
+  validates :name, :venue, :address, :city, :state, :zip, :country, :day, :frequency, :show_type, :show_time, :metro_area_id, :presence => true
+
   enumerate :show_type
   enumerate :state
   enumerate :frequency

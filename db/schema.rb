@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130723053831) do
+ActiveRecord::Schema.define(:version => 20130729045709) do
 
   create_table "metro_areas", :force => true do |t|
     t.string   "name"
@@ -31,20 +31,20 @@ ActiveRecord::Schema.define(:version => 20130723053831) do
     t.string   "country"
     t.string   "phone"
     t.integer  "zip"
-    t.string   "signup_time"
-    t.string   "show_time"
     t.string   "host_name"
     t.string   "price"
     t.text     "notes"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
-    t.string   "status"
     t.integer  "metro_area_id"
     t.string   "filepicker_url"
     t.integer  "show_type"
     t.integer  "state"
     t.integer  "day"
     t.integer  "frequency"
+    t.integer  "signup_time"
+    t.integer  "show_time"
+    t.integer  "status"
   end
 
   create_table "users", :force => true do |t|

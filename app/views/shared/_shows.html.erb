@@ -1,7 +1,7 @@
 <div id="container" class="js-masonry">
 
   <% @shows.each do |show| %>
-    <div class="show shadow<% if show.updated_at > DateTime.now - 1.month %> fresh-show<% end %>">
+    <div class="show-box shadow<% if show.updated_at > DateTime.now - 1.month %> fresh-show<% end %>">
     
       <div class="info">
         <div><b><%= link_to show.venue, show_path(show) %></b></div>

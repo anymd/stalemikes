@@ -46,7 +46,9 @@ gem 'pg'
 gem 'masonry-rails'
 gem "filepicker-rails", git: "git://github.com/maxtilford/filepicker-rails.git"
 gem 'active_enum'
-gem 'formtastic'
+gem 'simple_form'
+gem "combined_time_select"
+
 
 # Gems used only for assets and not required
 # in production environments by default.

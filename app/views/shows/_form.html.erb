@@ -1,25 +1,29 @@
-<%= semantic_form_for @show do |f| %>
+<%= simple_form_for @show do |f| %>
 
-    <%= f.input :metro_area_id, :as => :select, :collection => MetroArea.all %>
-    <%= f.input 'name', :label => 'Show Name' %>
-    <%= f.input 'venue', :label => 'Venue' %>
-    <%= f.input 'address', :label => 'Adress' %>
-    <%= f.input 'city', :label => 'City' %>
-    <%= f.input 'state', :label => 'State' %>
-    <%= f.input 'zip', :label => 'Zip' %>
-    <%= f.input 'country', :label => 'Country' %>
+    <%= f.input :metro_area_id, :as => :select, :collection => MetroArea.all, :include_blank => '--Select--', :required => true %>
+    <%= f.input 'name', :label => 'Show Name', :required => true %>
+    <%= f.input 'venue', :label => 'Venue', :required => true %>
+    <%= f.input 'address', :label => 'Adress', :required => true %>
+    <%= f.input 'city', :label => 'City', :required => true %>
+    <%= f.input 'state', :label => 'State', :collection => State.to_select, :selected => @show.state(:id), :include_blank => '--Select--', :required => true %>
+    <%= f.input 'zip', :label => 'Zip', :as => :string, :required => true %>
+    <%= f.input 'country', :label => 'Country', :include_blank => '--Select--', :required => true %>
     <%= f.input 'web_site', :label => 'Show Web Site' %>
     <%= f.input 'facebook_link', :label => 'Facebook Link' %>
     <%= f.input 'twitter_name', :label => 'Twitter Name' %>
-    <%= f.input :phone, :as => :phone, :label => 'Phone Number' %>
-    <%= f.input 'day', :label => 'Day' %>
-    <%= f.input 'frequency', :label => 'Frequency' %>
-    <%= f.input :show_type, :as => :radio, :label => 'Type', :collection => ShowType.to_select %>
-    <%= f.input 'signup_time', :label => 'Signup Time' %>
-    <%= f.input 'show_time', :label => 'Show Time' %>
+    <%= f.input 'phone' %>
+    <%= f.input 'day', :label => 'Day', :collection => Day.to_select, :selected => @show.day(:id), :include_blank => '--Select--', :required => true %>
+    <%= f.input 'frequency', :label => 'Frequency', :collection => Frequency.to_select, :selected => @show.frequency(:id), :include_blank => '--Select--', :required => true %>
+    <%= f.input 'show_type', :label => 'Show Type', :collection => ShowType.to_select, :selected => @show.show_type(:id), :include_blank => '--Select--', :required => true %>
+    <%= f.input 'signup_time', :label => 'Signup Time'%>
+    <%= f.input 'show_time', :label => 'Show Time', :required => true, :as => :time %>
     <%= f.input 'host_name', :label => 'Host Name' %>
     <%= f.input 'price', :label => 'Cover Charge' %>
-    <%= f.input 'notes', :label => 'More Info' %>
-    <%= f.filepicker_field 'filepicker_url', :label => 'Show Image' %>                                      
-    <%= f.actions %>
+
+    <br><br>
+    <%= f.input 'notes', :label => 'More Info' %>    
+    <br><br>
+    <%= f.filepicker_field 'filepicker_url', :label => 'Show Image' %>    
+    <br><br>             
+    <%= f.button :submit %>
 <% end %>

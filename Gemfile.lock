@@ -61,6 +61,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+    combined_time_select (1.0.1)
     country-select (1.1.1)
     debug_inspector (0.0.2)
     diff-lcs (1.2.4)
@@ -71,8 +72,6 @@ GEM
       i18n (~> 0.5)
     faraday (0.8.7)
       multipart-post (~> 1.1)
-    formtastic (2.2.1)
-      actionpack (>= 3.0)
     hashie (2.0.4)
     hike (1.2.2)
     httpauth (0.2.0)
@@ -171,6 +170,9 @@ GEM
     shoulda-matchers (1.5.6)
       activesupport (>= 3.0.0)
       bourne (~> 1.3)
+    simple_form (2.1.0)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -198,10 +200,10 @@ DEPENDENCIES
   binding_of_caller
   capybara
   coffee-rails (~> 3.2.1)
+  combined_time_select
   country-select
   faker
   filepicker-rails!
-  formtastic
   jquery-rails
   masonry-rails
   nyan-cat-formatter
@@ -214,4 +216,5 @@ DEPENDENCIES
   rspec-rails (~> 2.0)
   sass-rails (~> 3.2.3)
   shoulda
+  simple_form
   uglifier (>= 1.0.3)

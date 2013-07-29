@@ -8,13 +8,15 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require_tree . 
  *= require_self
- *= require_tree .
  */
 
 /** {
   border: 1px solid black;
 }*/
+
+
 
 body {
   margin: 0px;
@@ -33,7 +35,7 @@ body {
 #shows {
 }
 
-.show {
+.show-box {
   cursor: pointer;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -41,11 +43,12 @@ body {
   background-color: white;
 }
 
-.show:hover {
+
+.show-box:hover {
   background-color: #fffdcc;
 }
 
-.show:hover div {
+.show-box:hover div {
   color: black;
 }
 
@@ -127,7 +130,7 @@ body {
   color: #999;
 }
 
-.show {
+.show-box {
   padding: 10px;
   margin: 10px;
   width: 300px;
@@ -173,5 +176,3 @@ div.shadow {
      -moz-box-shadow: 0 5px 6px -6px #777;
           box-shadow: 0 5px 6px -6px #777;
 }
-
-
