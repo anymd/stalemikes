@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130729045709) do
+ActiveRecord::Schema.define(:version => 20130801064858) do
 
   create_table "metro_areas", :force => true do |t|
     t.string   "name"
@@ -42,9 +42,11 @@ ActiveRecord::Schema.define(:version => 20130729045709) do
     t.integer  "state"
     t.integer  "day"
     t.integer  "frequency"
-    t.integer  "signup_time"
-    t.integer  "show_time"
-    t.integer  "status"
+    t.string   "status"
+    t.datetime "signup_time"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "charge"
   end
 
   create_table "users", :force => true do |t|

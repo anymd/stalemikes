@@ -1,7 +1,6 @@
 notes:
 
 issues:
-edit show does not prepopulate existing values
 
 need model validations
 
@@ -11,7 +10,7 @@ show map by show on home page (off by default)
 add 5 star ratings and average it
 -show total users who rated a show
 
-add facebook comments by show
+make shows fade over time
 
 don't allow a show lister to verify more than once a week
 
@@ -19,7 +18,7 @@ allow show lister to mark if show is no longer active, which should hide it from
 
 change updated_at to something else so verification isn't based on small changes, user should have to explicitly verify show is still active
 
-allow only to enter historical notes about the show
+allow only creator to enter historical notes about the show
 
 add change history
 
@@ -27,11 +26,14 @@ allow admin to do anything
 
 allow user to decide if their facebook name is associated with the show or not
 
+add email address for booking
+obfuscate email address from robots
+
 allow user to transfer ownership of show
 
 on myshows, show all shows regardless of active or not
 
-users do not have to login to make facebook comments
+let booker indicate a specific upcoming date that is dark
 
 users have to log in to rate a show
 
@@ -52,3 +54,18 @@ more info on show 'card'
 -venue web site
 
 make default image for show
+
+add facebook like button for stale mikes
+add facebook like button for each show?
+
+add share buttons for stale mikes
+add share buttons for shows
+
+need favicon
+
+explain with filepicker that a square image is best
+
+resize filepicker image on edit page
+
+
+
