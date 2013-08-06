@@ -22,12 +22,12 @@ ActiveEnum.define do
   end
 
   enum(:frequency) do
-    value 1 => 'weekly'
-    value 2 => 'monthly'
-    value 3 => '1st week of month'
-    value 4 => '2nd week of month'
-    value 5 => '3rd week of month'
-    value 6 => '4th week of month'
+    value 1 => 'Weekly'
+    value 2 => 'Monthly'
+    value 3 => '1st week of the month'
+    value 4 => '2nd week of the month'
+    value 5 => '3rd week of the month'
+    value 6 => '4th week of the month'
   end
 
   enum(:day) do

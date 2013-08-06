@@ -1,36 +1,116 @@
-<% if @show.user == current_user %>
-<p><%= link_to "edit", edit_show_path(@show) %></p>
 
-<p>mark this show as:</p>
-<ul>
-	<li>still happening</li>
-  <li>on hiatus</li>
-  <li>dead</li>
-  <li>[] hide it from site</li>
-</ul>  
+<% show = @show %>
 
-<% end %>
-<table border="1">
+<div class="show-box-large shadow">
 
-<p>Show last updated <%= time_ago_in_words(@show.updated_at) %> ago</p>
+  <div class="image">
+      <img src="http://lorempixel.com/296/80/nightlife/<%= [*1..10].sample %>" width=780 height=210> 
+  </div>
 
-  <tr><td>status</td><td><%= @show.status %></td></tr>
-	<% if @show.name %><tr><td>name</td><td><%= @show.name %></td></tr><% end %>	
-	<% if @show.venue %><tr><td>venue</td><td><%= @show.venue %></td></tr><% end %>
-	<% if @show.address %><tr><td>adress</td><td><%= @show.address %></td></tr><% end %>
-	<% if @show.city %><tr><td>city</td><td><%= @show.city %>, <%= @show.state %> <%= @show.zip %></td></tr><% end %>
-	<% if @show.country %><tr><td>country</td><td><%= @show.country %></td></tr><% end %>
-	<% if @show.phone != "" %><tr><td>phone</td><td><%= @show.phone %></td></tr><% end %>
-	<% if @show.web_site != "" %><tr><td>web site</td><td><%= @show.web_site %></td></tr><% end %>
-	<% if @show.address != "" %><tr><td>facebook</td><td><%= @show.facebook_link %></td></tr><% end %>
-	<% if @show.twitter_name != "" %><tr><td>twitter</td><td><%= @show.twitter_name %></td></tr><% end %>
-	<% if @show.day != "" %><tr><td>day of week</td><td><%= @show.day %></td></tr><% end %>
-	<% if @show.frequency != "" %><tr><td>frequency</td><td><%= @show.frequency %></td></tr><% end %>
-	<% if @show.show_type != "" %><tr><td>type</td><td><%= @show.show_type %></td></tr><% end %>
-	<% if @show.signup_time != "" %><tr><td>signup time</td><td><%= @show.signup_time %></td></tr><% end %>			
-	<% if @show.start_time != "" %><tr><td>start time</td><td><%= @show.start_time %></td></tr><% end %>
-	<% if @show.host_name != "" %><tr><td>host name</td><td><%= @show.host_name %></td></tr><% end %>			
-	<% if @show.price != "" %><tr><td>price</td><td><%= @show.price %></td></tr><% end %>			
-	<% if @show.notes != "" %><tr><td>notes</td><td><%= @show.notes %></td></tr><% end %>
-</table>
-<hr>
+  <div class="map">
+	  <%= image_tag 'http://maps.googleapis.com/maps/api/staticmap?markers=color:green%7C' + show.address + show.city + show.state + show.country + show.zip.to_s + '&zoom=13&size=400x400&maptype=roadmap&sensor=false' %>
+  </div>
+
+  <div class="show-name"><%= show.name.upcase %></div>
+  <div class="show-venue">@ <%= show.venue %></div>
+  
+  <div class="address">
+    <%= show.address %><br>
+    <%= show.city %><% if show.state%>,<% end %> <%= show.state %> <%= show.zip %>        <%= link_to 'edit', edit_show_path(show) %>
+  </div>
+
+  <div class="details">
+  	<table>
+  		<tr>
+  			<td>day</td>
+  			<td><%= show.day %></td>
+  		</tr>
+  		<tr>
+  			<td>frequency</td>
+  			<td><%= show.frequency %></td>
+    	</tr>
+      <tr>
+				<td>type</td>
+				<td><%= show.show_type %></td>
+      </tr>          	
+      <tr>
+      	<td>show time</td>
+        <td><%= show.start_time.strftime("%l:%M %p") %> to <%= show.end_time.strftime("%l:%M %p") %></td>
+  		</tr>
+      <tr>
+      	<td>organized by</td>
+      	<td><%= show.user.name %></td>
+      </tr>
+      <tr>
+				<td>show</td>
+				<td><%= show.name %></td>
+      </tr>
+      <tr>
+				<td>web site</td>
+				<td><%= show.web_site %></td>
+      </tr>
+      <tr>
+      	<td>facebook</td>
+				<td><%= show.facebook_link %></td>
+      </tr>
+      <tr>							
+				<td>twitter</td>
+				<td><%= show.twitter_name %></td>
+      </tr>
+      <tr>
+				<td>venue</td>
+				<td><%= show.venue %></td>
+      </tr>
+      <tr>
+				<td>venue phone</td>
+				<td><%= show.phone %></td>
+      </tr>
+      <tr>
+				<td>hosted by</td>
+				<td><%= show.host_name %></td>
+      </tr>
+      <tr>
+				<td>show price</td>
+				<td><%= show.price %></td>
+      </tr>
+      <tr>
+				<td>notes</td>
+				<td><%= show.notes %></td>
+      </tr>
+      <tr>
+				<td>listed on</td>
+				<td><%= show.created_at.strftime("%b %e, %Y") %></td>
+      </tr>
+      <tr>
+				<td>last updated</td>
+				<td><%= show.updated_at.strftime("%b %e, %Y") %></td>
+      </tr>
+      <tr>
+				<td>metro area</td>
+				<td><%= show.metro_area.name %></td>
+      </tr>
+      <tr>
+				<td>status</td>
+				<td><%= show.status %></td>
+      </tr>
+      <tr>
+				<td>signup time</td>
+				<td><%= show.signup_time.strftime("%l:%M %p") %></td>
+      </tr>
+      <tr>
+				<td>pay to perform</td>
+				<td><%= show.charge %></td>
+			</tr>
+  </div>
+
+	<div class="last-verified">
+    <b>last verified</b><br>
+    <span class="verified"><%= time_ago_in_words(show.updated_at) %> ago
+      <div class="fresh">
+      <% if show.updated_at > DateTime.now - 1.month %><%= image_tag 'fresh.png' %><% end %></div>
+  </div> 
+
+</div>
+
+
+<!-- <div class="fb-comments" data-href="stagetime.dev/shows/<%= @show.id %>" data-width="600"></div> -->

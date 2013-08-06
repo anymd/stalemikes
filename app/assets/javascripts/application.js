@@ -14,25 +14,27 @@
 // = require jquery_ujs
 //= require_tree .
 
-    $.get(
-        '/auth/facebook/callback',
-        { signed_request: response.authResponse.signedRequest },
-        function(json) {
-          alert("received logged in response");
-      });    $.get(
-        '/auth/facebook/callback',
-        { signed_request: response.authResponse.signedRequest },
-        function(json) {
-          alert("received logged in response");
-      });
+$.get(
+    '/auth/facebook/callback',
+    { signed_request: response.authResponse.signedRequest },
+    function(json) {
+      alert("received logged in response");
+  });    $.get(
+    '/auth/facebook/callback',
+    { signed_request: response.authResponse.signedRequest },
+    function(json) {
+      alert("received logged in response");
+  });
+
 
 $(document).ready(function() {
+  console.log('hi');
 
-  var container = document.querySelector('#container');
-  var msnry = new Masonry( container, {
-    // options
-    columnWidth: 200,
-    itemSelector: '.item'
-  });
+    var container = document.querySelector('#container');
+    var msnry = new Masonry( container, {
+      // options
+      columnWidth: 200,
+      itemSelector: '.item'
+    });
 
 });

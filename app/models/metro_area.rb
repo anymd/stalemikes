@@ -1,6 +1,6 @@
 class MetroArea < ActiveRecord::Base
-  attr_accessible :name, :metro_area
+  attr_accessible :name, :metro_area_id
 
-  belongs_to :shows
+  has_many :shows
   
 end

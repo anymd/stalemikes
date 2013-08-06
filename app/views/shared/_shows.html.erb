@@ -2,37 +2,40 @@
 
   <% @shows.each do |show| %>
     <div class="show-box shadow<% if show.updated_at > DateTime.now - 1.month %> fresh-show<% end %>">
-    
-      <div class="info">
-        <div><b><%= link_to show.venue, show_path(show) %></b></div>
-        <div><%= show.name %></div>
-        <div><%= show.city %><% if show.state%>,<% end %> <%= show.state %></div>
-        <div><%= show.day %></div>
-        <div><%= show.frequency %></div>
-        <div><%= show.show_type %></div>
-        <br>
-      </div>  
-        <div>
-          <!-- <img src="http://maps.google.com/maps/api/staticmap?zoom=11&markers=<%= show.address %><%= show.city %><%= show.state %>&size=240x80&sensor=false"> -->
+
+        <div class="image">
+            <img src="http://lorempixel.com/296/80/nightlife/<%= [*1..10].sample %>" width=296 height=80> 
+        </div>
+        <div class="show-name"><%= show.name.upcase %></div>
+        <div class="show-venue">@ <%= show.venue %></div>
+        
+        <div class="address">
+          <%= show.address %><br>
+          <%= show.city %><% if show.state%>,<% end %> <%= show.state %> <%= show.zip %>        <%= link_to 'edit', edit_show_path(show) %>
         </div>
 
-      <div class="image">
-        <% if show.filepicker_url %>
-          <%= filepicker_image_tag(show.filepicker_url, w: 90, h: 90, fit: 'clip') %>
-        <% else %>
-          <img src="http://lorempixel.com/90/90/nightlife/<%= [*1..10].sample %>">
-        <% end %>  
-      </div>
-
-      <div>
-        <div class="last-verified"><b>last verified:</b><br>
-          <span class="verified"><%= time_ago_in_words(show.updated_at) %> ago
-            <div class="fresh">
-            <% if show.updated_at > DateTime.now - 1.month %><%= image_tag 'fresh.png' %><% end %></div>
+        <div class="details">
+          <%= show.day %> / <%= show.frequency %><br>
+          <%= show.show_type %><br>
+          <% if show.start_time %>
+            <%= show.start_time.strftime("%l:%M %p") %>
+               <% if show.end_time %> to <%= show.end_time.strftime("%l:%M %p") %>
+               <% end %><% end %>
         </div>
-        <%= link_to 'edit', edit_show_path(show) %>
-      </div>
-              
+
+        <div class="booking-info">
+          <%= link_to "web site", show_path(show), :class => "button" %> 
+          <%= link_to "map", show_path(show), :class => "button" %> 
+          <%= link_to "booking info", show_path(show), :class => "button" %>
+        </div>
+
+      <div class="last-verified">
+        <b>last verified</b><br>
+        <span class="verified"><%= time_ago_in_words(show.updated_at) %> ago
+          <div class="fresh">
+          <% if show.updated_at > DateTime.now - 1.month %><%= image_tag 'fresh.png' %><% end %></div>
+      </div> 
+ 
     </div>
 
   <% end %>
