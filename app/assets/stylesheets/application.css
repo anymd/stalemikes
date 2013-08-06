@@ -58,9 +58,9 @@ body {
   border: 1px solid #ccc;
   background-color: white;
   font-size: 14px;
-  padding: 15px;
+  padding: 30px;
   margin: 10px;
-  width: 790px;
+  width: 460px;
   float: left;
 }
 
@@ -88,12 +88,35 @@ body {
   margin-bottom: 10px;
 }
 
+.show-name-large {
+  font-weight: bold;
+  font-size: 26px;
+  float: left;
+  padding-top: 10px;
+}
+
+.social-links {
+  float: right;
+}
+
+.show-venue-large {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+  clear: both;
+  display: block;
+}
+
 .logo {
   font-size: 34px;
   line-height: 30px;
   float: left;
   margin-top: 5px;
   color: #E6EFEE;
+}
+
+.booking-info-list {
+  margin: 0px 0px 0px -24px;
 }
 
 .about {
@@ -169,15 +192,19 @@ body {
 }
 
 .address {
-  display: block;
+  float: left;
   width: 45%;
   padding-bottom: 10px;
 }
 
 .details {
-  display: block;
+  float: right;
   width: 45%;
   padding-bottom: 10px;
+}
+
+.details-large {
+  width: 90%;
 }
 
 .map {
@@ -189,10 +216,34 @@ body {
   width: 100%;
 }
 
+.map-large {
+  display: block;
+}
+
+.image-large {
+  display: block;
+}
+
 .image img {
   border: 1px solid #ccc;
   padding: 2px;
   margin-bottom: 10px;
+}
+
+.show-table {
+  width: 460px;
+}
+
+.show-table td, th {
+  padding: 5px;
+  border-bottom: 1px dotted #ccc;
+  vertical-align: top;
+}
+
+.show-table th {
+  font-size: 11px;
+  text-align: left;
+  font-weight: normal;
 }
 
 .booking-info {
@@ -261,4 +312,12 @@ div.shadow {
     -webkit-box-shadow: 0 5px 6px -6px #777;
      -moz-box-shadow: 0 5px 6px -6px #777;
           box-shadow: 0 5px 6px -6px #777;
+}
+
+.comments {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 0px 10px 0px;
+  border-top: 1px dotted #ccc;
+  margin-top: 10px;
 }

@@ -3,114 +3,72 @@
 
 <div class="show-box-large shadow">
 
-  <div class="image">
-      <img src="http://lorempixel.com/296/80/nightlife/<%= [*1..10].sample %>" width=780 height=210> 
+  <div class="image-large">
+      <img src="http://lorempixel.com/460/140/nightlife/<%= [*1..10].sample %>" width=460 height=140> 
   </div>
 
-  <div class="map">
-	  <%= image_tag 'http://maps.googleapis.com/maps/api/staticmap?markers=color:green%7C' + show.address + show.city + show.state + show.country + show.zip.to_s + '&zoom=13&size=400x400&maptype=roadmap&sensor=false' %>
+  <div class="show-name-large"><%= show.name.upcase %></div>
+  <div class="social-links"><%= link_to 'f', show.facebook_link %> <%= link_to 'w', show.web_site %> <%= link_to 't', show.twitter_name %></div>
+  <div class="show-venue-large">@ <%= show.venue %></div>
+
+  <div class="details-large">
+    <table class="show-table">
+      <tr>
+        <th nowrap>Status</td>
+        <td><%= show.status %></td>
+      </tr>
+      <tr>
+      	<th nowrap>Last Verified</th>
+        <td><%= time_ago_in_words(show.updated_at) %> ago</td>
+      </tr>            	
+      <tr>
+        <th nowrap>When</td>
+        <td><%= show.day %> / <%= show.frequency %> / <%= show.start_time.strftime("%l:%M %p") %> to <%= show.end_time.strftime("%l:%M %p") %></td>
+      </tr>
+      <tr>
+        <th nowrap>Where</td>
+        <td>
+        	<%= show.address %> <%= show.city %>, <%= show.state %> <%= show.zip %> <%= show.country unless show.country == 'United States' %> <%= show.phone %>
+        </td>
+      </tr> 
+      <tr>
+        <th nowrap>Booking Info</td>
+        <td>
+        	<ul class="booking-info-list">
+        		<li><%= show.show_type %> <% if show.show_type(:id) == 1 %>/ Signup at <%= show.signup_time.strftime("%l:%M %p") %><% end %></li>
+						<li>Cost to perform: <%= show.charge %></li>
+						<li>Organized by <%= show.user.name %></li>
+						<% if show.notes %><li>Notes: <%= show.notes %></li><% end %>
+				  </ul>
+      </tr>
+        </td>
+      </tr>  
+      <tr>
+        <th nowrap>Price / Tickets</td>
+        <td><%= show.price %></td>
+      </tr>
+      <tr>
+        <th nowrap>Hosted by</td>
+        <td><%= show.host_name %></td>
+      </tr>         
+      <tr>
+        <th nowrap>Listed On</td>
+        <td><%= show.created_at.strftime("%b %e, %Y") %></td>
+      </tr>
+      <tr>
+        <th nowrap>Metro area</td>
+        <td><%= show.metro_area.name %></td>
+      </tr> 
+    </table>  
   </div>
 
-  <div class="show-name"><%= show.name.upcase %></div>
-  <div class="show-venue">@ <%= show.venue %></div>
-  
-  <div class="address">
-    <%= show.address %><br>
-    <%= show.city %><% if show.state%>,<% end %> <%= show.state %> <%= show.zip %>        <%= link_to 'edit', edit_show_path(show) %>
+  <div class="map-large">
+    <%= image_tag 'http://maps.googleapis.com/maps/api/staticmap?markers=color:green%7C' + show.address + show.city + show.state + show.country + show.zip.to_s + '&zoom=13&size=460x140&maptype=roadmap&sensor=false' %>
   </div>
 
-  <div class="details">
-  	<table>
-  		<tr>
-  			<td>day</td>
-  			<td><%= show.day %></td>
-  		</tr>
-  		<tr>
-  			<td>frequency</td>
-  			<td><%= show.frequency %></td>
-    	</tr>
-      <tr>
-				<td>type</td>
-				<td><%= show.show_type %></td>
-      </tr>          	
-      <tr>
-      	<td>show time</td>
-        <td><%= show.start_time.strftime("%l:%M %p") %> to <%= show.end_time.strftime("%l:%M %p") %></td>
-  		</tr>
-      <tr>
-      	<td>organized by</td>
-      	<td><%= show.user.name %></td>
-      </tr>
-      <tr>
-				<td>show</td>
-				<td><%= show.name %></td>
-      </tr>
-      <tr>
-				<td>web site</td>
-				<td><%= show.web_site %></td>
-      </tr>
-      <tr>
-      	<td>facebook</td>
-				<td><%= show.facebook_link %></td>
-      </tr>
-      <tr>							
-				<td>twitter</td>
-				<td><%= show.twitter_name %></td>
-      </tr>
-      <tr>
-				<td>venue</td>
-				<td><%= show.venue %></td>
-      </tr>
-      <tr>
-				<td>venue phone</td>
-				<td><%= show.phone %></td>
-      </tr>
-      <tr>
-				<td>hosted by</td>
-				<td><%= show.host_name %></td>
-      </tr>
-      <tr>
-				<td>show price</td>
-				<td><%= show.price %></td>
-      </tr>
-      <tr>
-				<td>notes</td>
-				<td><%= show.notes %></td>
-      </tr>
-      <tr>
-				<td>listed on</td>
-				<td><%= show.created_at.strftime("%b %e, %Y") %></td>
-      </tr>
-      <tr>
-				<td>last updated</td>
-				<td><%= show.updated_at.strftime("%b %e, %Y") %></td>
-      </tr>
-      <tr>
-				<td>metro area</td>
-				<td><%= show.metro_area.name %></td>
-      </tr>
-      <tr>
-				<td>status</td>
-				<td><%= show.status %></td>
-      </tr>
-      <tr>
-				<td>signup time</td>
-				<td><%= show.signup_time.strftime("%l:%M %p") %></td>
-      </tr>
-      <tr>
-				<td>pay to perform</td>
-				<td><%= show.charge %></td>
-			</tr>
-  </div>
-
-	<div class="last-verified">
-    <b>last verified</b><br>
-    <span class="verified"><%= time_ago_in_words(show.updated_at) %> ago
-      <div class="fresh">
-      <% if show.updated_at > DateTime.now - 1.month %><%= image_tag 'fresh.png' %><% end %></div>
-  </div> 
+  <div class="comments">Comments</div>
+  <div class="fb-comments" data-href="stagetime.dev/shows/<%= @show.id %>" data-width="460"></div>
 
 </div>
 
 
-<!-- <div class="fb-comments" data-href="stagetime.dev/shows/<%= @show.id %>" data-width="600"></div> -->
