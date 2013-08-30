@@ -1,4 +1,4 @@
-name,venue,address,city,state,zip,country,web_site,facebook_link,twitter_name,phone,day,frequency,show_type,signup_time,show_time,host_name,price,notes,user_id,status,metro_area_id
+name,venue,address,city,state,zip,country,web_site,facebook_link,twitter_name,phone,day,frequency,show_type,signup_time,start_time,host_name,price,notes,user_id,status,metro_area_id
 Comet Club Comedy,Comet Club,3111 Fillmore Street,San Francisco,California,94123,United States,,http://facebook.com/cometclubcomedy,,,Thurdsay,weekly,booked,,20:30:00,Ben Feldman,free,1,1,,1
 Sunday Showcase,San Francisco Punchline,444 Battery Street,San Francisco,California,94111,United States,http://punchlinecomedyclub.com/,,punchlinesf,,Sunday,weekly,booked,,8pm,varies,,6-12 month wait,2,1,1
 Comedy Show,The Marmist Cocktail Lounge,2306 Almaden Rd,San Jose,San Jose,95125,United States,,,,,Sunday,weekly,open mic,,10pm,,,begins May 26, 2013,1,3,1

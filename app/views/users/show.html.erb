@@ -2,5 +2,12 @@
 
 <%= render 'shared/notice' %>
 
+
+<% if @shows.size == 0 %>
+You don't have any shows listed.<br><br>
+<%= link_to 'list a show', new_show_path %>
+<% end %>
+
+
 <%= render 'shared/shows' %>
 

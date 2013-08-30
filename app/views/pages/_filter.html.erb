@@ -1,0 +1,59 @@
+<script>
+
+$(document).ready(function(){
+
+  document.getElementById('metro').value = $("#metro").val();
+  document.getElementById('day').value = $("#day").val();
+  document.getElementById('type').value = $("#type").val();
+  
+});
+
+</script>
+
+<div class="filter">
+
+  <div class="metro-area"> 
+    Metro Area
+    <select id="metro" name"metro_area" onchange="document.location.href = '?' + 'metro=' + this.value + 
+      '&day=<%= params[:day] %>&type=<%= params[:type] %>'">
+      <option value="">Any</option>
+      <% @metro_areas.each do |metro_area| %>
+        <option value="<%= metro_area.id %>" 
+          <% if params[:metro].to_s == metro_area.id.to_s %>
+            selected
+          <% end %>
+          ><%= metro_area.name %></option>
+      <% end %>
+    </select>  
+  </div>
+
+  <div class="day"> 
+    Day 
+    <select id="day" name"day" onchange="document.location.href = '?' + 'metro=<%= params[:metro] %>' + '&day=' + this.value + '&type=<%= params[:type] %>'">
+      <option value="">Any</option>
+      <% Day.to_select.each do |day| %>
+        
+        <option value="<%= day[1] %>" 
+          <% if params[:day].to_s == day[1].to_s %>
+            selected
+          <% end %>  
+          ><%= day[0] %></option>
+      <% end %>
+    </select>  
+  </div>
+
+  <div class="type">  
+    Type
+    <select id="type" name"type" onchange="document.location.href = '?' + 'metro=<%= params[:metro] %>' + '&day=<%= params[:day] %>' + '&type=' + this.value">
+      <option value="">Any</option>
+      <% ShowType.to_select.each do |show_type| %>
+        <option value="<%= show_type[1] %>"
+          <% if params[:type].to_s == show_type[1].to_s %>
+            selected
+          <% end %>
+          ><%= show_type[0] %></option>
+      <% end %>
+    </select>   
+  </div>
+
+</div>

@@ -1,7 +1,8 @@
 class ShowsController < ApplicationController
 
 	before_filter :find_show, :only => [:show, :edit, :update, :destroy]
-
+  before_filter :default_image, :only => [:update]
+  
   def new
   	@show = Show.new
   end
@@ -9,9 +10,11 @@ class ShowsController < ApplicationController
   def create
   	@show = Show.new(params[:show])
     @show.user = current_user
+    @show.verified_at = Time.now
   	if @show.save
   	  redirect_to root_path
   	else
+      flash[:notice] = "Please fill in all required fields (highlighted in red)"
   	  render :new
   	end
   end
@@ -21,6 +24,11 @@ class ShowsController < ApplicationController
   end
 
   def edit
+    if current_user
+      render 'edit'
+    else
+      redirect_to root_path
+    end
   end
 
   def destroy
@@ -34,16 +42,26 @@ class ShowsController < ApplicationController
   def update
     if current_user == @show.user
     	@show.update_attributes(params[:show])
+      @show.verified_at = Time.now
+
+      if @show.save
+        render :show
+      else
+        flash[:notice] = "Please fill in all required fields (highlighted in red)"
+        render :new
+      end
     end
-
-    render :show
-
   end
 
   private
 
   def find_show
   	@show = Show.find(params[:id])
+  end
+
+  def default_image
+    @show.filepicker_url ||= "http://lorempixel.com/460/140/nightlife/" + [*2..10].sample.to_s
+    @show.save
   end
 
 end

@@ -21,13 +21,21 @@ ActiveEnum.define do
     value 2 => 'Pre-booked'
   end
 
+  enum(:status) do
+    value 1 => 'Ongoing'
+    value 2 => 'Starting soon'
+    value 3 => 'On hiatus'
+    value 4 => 'Canceled'
+  end
+
   enum(:frequency) do
     value 1 => 'Weekly'
-    value 2 => 'Monthly'
-    value 3 => '1st week of the month'
-    value 4 => '2nd week of the month'
-    value 5 => '3rd week of the month'
-    value 6 => '4th week of the month'
+    value 2 => '1st'
+    value 3 => '2nd'
+    value 4 => '3rd'
+    value 5 => '4th'
+    value 6 => '1st & 3rd'
+    value 7 => '2nd & 4th'
   end
 
   enum(:day) do

@@ -1,39 +1,46 @@
+
+
 <div id="container" class="js-masonry">
 
+
+<% if @shows.size == 0 %>
+  <div class="no-results">There are no shows that match the filter :(</div>
+<% end %>
+
   <% @shows.each do |show| %>
-    <div class="show-box shadow<% if show.updated_at > DateTime.now - 1.month %> fresh-show<% end %>">
 
-        <div class="image">
-            <img src="http://lorempixel.com/296/80/nightlife/<%= [*1..10].sample %>" width=296 height=80> 
-        </div>
-        <div class="show-name"><%= show.name.upcase %></div>
-        <div class="show-venue">@ <%= show.venue %></div>
+    <div class="show-box shadow"<% unless show.updated_at > DateTime.now - 1.month %> style="opacity: 0.2"<% end %>>
+  <%= link_to "edit", edit_show_path(show), :class => 'edit-show' if current_user && params[:action] == 'show' && params[:controller] == 'users' %>
+
+          <% if show.filepicker_url %>
+          <div class="image">
+              <%= image_tag show.filepicker_url, :width => 300 %>
+          </div>
+          <% end %>
         
-        <div class="address">
-          <%= show.address %><br>
-          <%= show.city %><% if show.state%>,<% end %> <%= show.state %> <%= show.zip %>        <%= link_to 'edit', edit_show_path(show) %>
-        </div>
-
-        <div class="details">
-          <%= show.day %> / <%= show.frequency %><br>
-          <%= show.show_type %><br>
-          <% if show.start_time %>
-            <%= show.start_time.strftime("%l:%M %p") %>
-               <% if show.end_time %> to <%= show.end_time.strftime("%l:%M %p") %>
-               <% end %><% end %>
-        </div>
+        <div class="show-name"><%= show.name.upcase %></div>
+        <br>
+        @ <b><%= show.venue %></b><br>
+        <%= show.address %> <%= show.city %>, <%= show.state %> <%= show.zip %> <%= show.country if show.country != 'United States' %><br><br>
+          <% if show.frequency(:id) != 1 %>
+            <%= show.frequency %> <%= show.day %> of the month
+          <% else %>
+            <%= show.frequency %> on <%= show.day.pluralize %> 
+          <% end %><br><%= show.start_time.strftime("%l:%M %p") %> to <%= show.end_time.strftime("%l:%M %p") unless show.end_time == nil %>
+          <br>
+          <%= show.show_type %> <% if show.show_type(:id) == 1 %> (signup at <%= show.signup_time.strftime("%l:%M %p") %>)<% end %><br>
+            <% if show.charge.size > 0 %>Cost to perform: <%= show.charge %><br><% end %>
+            <% if show.notes.size > 0 %>Notes: <%= show.notes %><% end %>
 
         <div class="booking-info">
-          <%= link_to "web site", show_path(show), :class => "button" %> 
-          <%= link_to "map", show_path(show), :class => "button" %> 
-          <%= link_to "booking info", show_path(show), :class => "button" %>
+          <%= button_to "more info", show_path(show), :method => "get", :class => "button" %>
         </div>
 
       <div class="last-verified">
         <b>last verified</b><br>
-        <span class="verified"><%= time_ago_in_words(show.updated_at) %> ago
+        <span class="verified"><%= time_ago_in_words(show.verified_at) %> ago
           <div class="fresh">
-          <% if show.updated_at > DateTime.now - 1.month %><%= image_tag 'fresh.png' %><% end %></div>
+          <% if show.verified_at > DateTime.now - 1.month %><%= image_tag 'fresh.png' %><% end %></div>
       </div> 
  
     </div>

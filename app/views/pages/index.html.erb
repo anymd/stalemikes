@@ -6,37 +6,10 @@
 <div class="alert alert-info"><i class="icon-info-sign"></i> Stale Mikes requires bookers to regularly verify their show is still alive and well.  Otherwise, it fades away!</div>
 <br>
 
-<div class="filter">
-
-  <div class="metro-area">  
-    <%= link_to 'All', request.parameters.merge({:metro => ''}) %> 
-    <% @metro_areas.each do |metro_area| %>
-      <%= link_to metro_area.name, request.parameters.merge({:metro => metro_area.id}) %> 
-    <% end %>
-  </div>
-
-  <div class="day">  
-    <%= link_to 'Any', request.parameters.merge({:day => ''}) %> 
-    
-    <% Day.to_select.each do |day| %>
-      <%= link_to day[0], request.parameters.merge({:day => day[1]}) %>
-    <% end %>
-  </div>
-
-  <div class="type">  
-    <%= link_to 'Any', request.parameters.merge({:type => ''}) %> 
-    
-    <% ShowType.to_select.each do |show_type| %>
-      <%= link_to show_type[0], request.parameters.merge({:type => show_type[1]}) %>
-    <% end %>
-  </div>
-
-</div>
-
-<br>
-
+<%= render 'pages/filter' %>
 
 <div id="show-box">
+
 <%= render 'shared/shows' %>
 </div>
 

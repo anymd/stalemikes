@@ -1,5 +1,9 @@
 <h1>Editing <%= @show.name %></h1>
 
-<%= link_to 'delete', show_path(@show), :confirm => 'are you sure you want to delete this show?', :method => :delete%>
+<!-- <%= link_to 'delete', show_path(@show), :confirm => 'are you sure you want to delete this show?', :method => :delete%>
+ -->
+
+<div class="instructions">
+Please update and save the details of your show to mark it verified with today's date.  If there are no changes, simply save it to verify.</div>
 
 <%= render 'form' %>

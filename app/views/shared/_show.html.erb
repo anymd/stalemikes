@@ -3,9 +3,11 @@
 
 <div class="show-box-large shadow">
 
+  <% if show.filepicker_url %>
   <div class="image-large">
-      <img src="http://lorempixel.com/460/140/nightlife/<%= [*1..10].sample %>" width=460 height=140> 
+      <%= image_tag show.filepicker_url, :width => 460, :height => 140 %>
   </div>
+  <% end %>
 
   <div class="show-name-large"><%= show.name.upcase %></div>
   <div class="social-links"><%= link_to 'f', show.facebook_link %> <%= link_to 'w', show.web_site %> <%= link_to 't', show.twitter_name %></div>
@@ -19,16 +21,24 @@
       </tr>
       <tr>
       	<th nowrap>Last Verified</th>
-        <td><%= time_ago_in_words(show.updated_at) %> ago</td>
+        <td><%= time_ago_in_words(show.verified_at) %> ago</td>
       </tr>            	
       <tr>
         <th nowrap>When</td>
-        <td><%= show.day %> / <%= show.frequency %> / <%= show.start_time.strftime("%l:%M %p") %> to <%= show.end_time.strftime("%l:%M %p") %></td>
+        <td>
+          <% if show.frequency(:id) != 1 %>
+            <%= show.frequency %> <%= show.day %> of the month
+          <% else %>
+            <%= show.frequency %> on <%= show.day %> 
+          <% end %><br><%= show.start_time.strftime("%l:%M %p") %> to <%= show.end_time.strftime("%l:%M %p") unless show.end_time == nil %>
+          
+        </td>
       </tr>
       <tr>
         <th nowrap>Where</td>
         <td>
-        	<%= show.address %> <%= show.city %>, <%= show.state %> <%= show.zip %> <%= show.country unless show.country == 'United States' %> <%= show.phone %>
+        	
+          <%= link_to show.address + ' ' + show.city + ', ' + show.state + ' ' + show.zip.to_s, 'http://www.google.com/maps/preview#!q=' + '+' + show.address + '+' + show.city + '+' + show.state + '+' + show.zip.to_s + '+' + show.country %>
         </td>
       </tr> 
       <tr>
@@ -36,21 +46,21 @@
         <td>
         	<ul class="booking-info-list">
         		<li><%= show.show_type %> <% if show.show_type(:id) == 1 %>/ Signup at <%= show.signup_time.strftime("%l:%M %p") %><% end %></li>
-						<li>Cost to perform: <%= show.charge %></li>
-						<li>Organized by <%= show.user.name %></li>
-						<% if show.notes %><li>Notes: <%= show.notes %></li><% end %>
+						<% if show.charge.size > 0 %><li>Cost to perform: <%= show.charge %></li><% end %>
+						<% if show.notes.size > 0 %><li>Notes: <%= show.notes %></li><% end %>
+            <li>Organized by <%= show.user.name %></li>
 				  </ul>
       </tr>
         </td>
       </tr>  
-      <tr>
+      <% if show.price.size > 0 %><tr>
         <th nowrap>Price / Tickets</td>
         <td><%= show.price %></td>
-      </tr>
-      <tr>
+      </tr><% end %>
+      <% if show.host_name.size > 0 %><tr>
         <th nowrap>Hosted by</td>
-        <td><%= show.host_name %></td>
-      </tr>         
+        <td><%= show.host_name.size > 0 %></td>
+      </tr><% end %>         
       <tr>
         <th nowrap>Listed On</td>
         <td><%= show.created_at.strftime("%b %e, %Y") %></td>
