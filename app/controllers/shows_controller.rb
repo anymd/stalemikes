@@ -9,6 +9,7 @@ class ShowsController < ApplicationController
 
   def create
   	@show = Show.new(params[:show])
+    @show.end_time = nil if !params[:include_end_time]
     @show.user = current_user
     @show.verified_at = Time.now
   	if @show.save
@@ -43,7 +44,7 @@ class ShowsController < ApplicationController
     if current_user == @show.user
     	@show.update_attributes(params[:show])
       @show.verified_at = Time.now
-
+      @show.end_time = nil if !params[:include_end_time]
       if @show.save
         render :show
       else

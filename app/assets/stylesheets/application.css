@@ -81,6 +81,7 @@ body {
 .show-name {
   font-weight: bold;
   font-size: 16px;
+  margin-bottom: 5px;
 }
 
 .show-venue {
@@ -267,7 +268,7 @@ body {
   display: block;
   width: 260px;
   text-align: center;
-  padding: 20px;
+  padding: 0px 0px 10px 20px;
 }
 
 .button {
@@ -445,4 +446,12 @@ div.shadow {
   font-size: 22px;
   color: red;
   font-weight: bold;
+}
+
+.booking-info-list li {
+  padding-bottom: 5px;
+}
+
+.include-end-time {
+  margin-left: 200px;
 }

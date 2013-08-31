@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
 
-  $("#signup_time").css({"display":"none"});
+  $('#signup_time').css({'display':'none'});
 
   if($(":input#show_show_type").val() == 1 ) {
 
@@ -17,14 +17,25 @@ $(document).ready(function(){
     }
   });
 
-  window.onImageUpload = ->
-  file = event.fpfile
-  img = $(".hi").prop("src", file.url)
-  $(event.target).parent().append(img)
+  $('#end_time').css({'display':'none'});
+
+  if($(":input#include_end_time").is(":checked")) {
+
+    $("#end_time").css({"display":"inline"});
+  };
+
+  $(":input#include_end_time").change(function() {
+    if($(this).is(":checked")) {
+      $("#end_time").css({"display":"inline"}) }
+    else {
+      $("#end_time").css({"display":"none"});
+    }
+  });
 
 });
 
 </script>
+
 
 <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
@@ -36,12 +47,14 @@ $(document).ready(function(){
 
     <%= f.input :status, :as => :select, :label => 'Status', :collection => Status.to_select, :selected => @show.status(:id), :include_blank => '--Select--', :required => true %>
 
-<!--     <div class="start-date">    
-      <%= f.input :start_date, :label => "Next show", :as => :date %>
-    </div> -->
-
     <%= f.input 'start_time', :label => 'Start Time', :as => :time, :ampm => true, :minute_step => 15, :default => Time.new(2000,1,1,20,0,0), :required => true %>
-    <%= f.input 'end_time', :label => 'End Time', :as => :time, :ampm => true, :minute_step => 15, :include_blank => true %>
+  <div class="include-end-time">
+   <input id="include_end_time" type='checkbox' name='include_end_time'
+   <% if @show.end_time %> checked<% end %>>Include end time
+    <div id="end_time"> 
+    <%= f.input 'end_time', :label => 'End Time', :as => :time, :ampm => true, :minute_step => 15 %>
+    </div>
+  </div>
 
     <%= f.input 'name', :label => 'Show Name', :required => true %>
     <%= f.input 'venue', :label => 'Venue', :required => true %>
@@ -61,7 +74,7 @@ $(document).ready(function(){
     <%= f.input 'web_site', :label => 'Show Web Site' %>
     <%= f.input 'facebook_link', :label => 'Facebook Link' %>
     <%= f.input 'twitter_name', :label => 'Twitter Handle' %>
-    <%= f.input 'phone' %>
+    <%= f.input 'phone', :label => 'Venue Phone' %>
     
     
     <%= f.input 'host_name', :label => 'Host Name' %>
@@ -71,7 +84,7 @@ $(document).ready(function(){
     <div class="filepicker-image-input">
         Show Photo
     <%= f.filepicker_field 'filepicker_url', :label => 'Show Image', :button_text => 'upload file', :extensions => '.png,.jpg,.gif', :multiple => false, :dragdrop => true %> </div>
-    <%= f.input 'notes', :label => 'How to get booked, etc.' %> 
+    <%= f.input 'notes', :label => 'How to get booked (include email or phone number, etc.)' %> 
      <div class="form-button">
     <%= f.button :submit %>
     </div>

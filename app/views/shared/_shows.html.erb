@@ -19,19 +19,26 @@
           <% end %>
         
         <div class="show-name"><%= show.name.upcase %></div>
-        <br>
+  
         @ <b><%= show.venue %></b><br>
-        <%= show.address %> <%= show.city %>, <%= show.state %> <%= show.zip %> <%= show.country if show.country != 'United States' %><br><br>
-          <% if show.frequency(:id) != 1 %>
+        <%= show.address %> <br><%= show.city %>, <%= show.state %> <%= show.zip %> <%= show.country if show.country != 'United States' %>
+          <ul>
+          <li><% if show.frequency(:id) != 1 %>
             <%= show.frequency %> <%= show.day %> of the month
           <% else %>
             <%= show.frequency %> on <%= show.day.pluralize %> 
-          <% end %><br><%= show.start_time.strftime("%l:%M %p") %> to <%= show.end_time.strftime("%l:%M %p") unless show.end_time == nil %>
-          <br>
-          <%= show.show_type %> <% if show.show_type(:id) == 1 %> (signup at <%= show.signup_time.strftime("%l:%M %p") %>)<% end %><br>
-            <% if show.charge.size > 0 %>Cost to perform: <%= show.charge %><br><% end %>
-            <% if show.notes.size > 0 %>Notes: <%= show.notes %><% end %>
-
+          <% end %>
+          </li>
+          <li><%= show.start_time.strftime("%l:%M %p") %><%= ' to ' + show.end_time.strftime("%l:%M %p") unless show.end_time == nil %>
+          </li>
+          <li>
+          <%= show.show_type %> <% if show.show_type(:id) == 1 %> (signup at <%= show.signup_time.strftime("%l:%M %p") %>)<% end %></li>
+          
+          
+            <% if show.charge.size > 0 %><li>Cost to perform: <%= show.charge %>
+          </li><% end %>
+          <li>Organized by <%= show.user.name %></li>
+        </ul>
         <div class="booking-info">
           <%= button_to "more info", show_path(show), :method => "get", :class => "button" %>
         </div>
