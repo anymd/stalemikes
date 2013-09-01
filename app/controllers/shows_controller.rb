@@ -40,11 +40,12 @@ class ShowsController < ApplicationController
   end
 
   def destroy
-    if current_user == @show.user
-    	@show = Show.find(params[:id])
-    	@show.destroy
-  	end
-    redirect_to user_path, :notice => "the show has been deleted"
+    redirect_to root_path
+   #  if current_user == @show.user
+   #  	@show = Show.find(params[:id])
+   #  	@show.destroy
+  	# end
+   #  redirect_to user_path, :notice => "the show has been deleted"
   end
 
   def update
