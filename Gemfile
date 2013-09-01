@@ -90,7 +90,8 @@ gem 'possessive'
 #   ruby "2.0.0"
 # end
 
-
+gem 'rails_12factor'
+ruby '2.0.0'
 
 group :development, :test do
   gem "nyan-cat-formatter"
