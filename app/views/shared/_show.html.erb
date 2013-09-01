@@ -56,7 +56,7 @@
       </tr>  
       <% if show.twitter_name.size > 0 || show.facebook_link.size > 0 || show.web_site.size > 0 %><tr>
         <th nowrap>Links</td>
-        <td><%= link_to 'facebook', show.facebook_link if show.facebook_link %> <%= link_to 'twitter', 'http://twitter/' + show.twitter_name if show.twitter_name %> <%= link_to 'web site', show.web_site if show.web_site %></td>
+        <td><%= link_to 'facebook', show.facebook_link if !show.facebook_link.blank? %> <%= link_to 'twitter', 'http://twitter/' + show.twitter_name if !show.twitter_name.blank? %> <%= link_to 'web site', show.web_site if !show.web_site.blank? %></td>
       </tr><% end %>
       <% if show.price.size > 0 %><tr>
         <th nowrap>Price / Tickets</td>
