@@ -8,7 +8,7 @@
 
   <% @shows.each do |show| %>
 
-      <% if params[:controller] = 'users' %>
+      <% if params[:controller] == 'users' %>
         <% opacity = 1 %>
       <% else %>
         <% opacity = 1 - ((calculate_age(Time.now) - calculate_age(show.verified_at)).to_f / 170).abs %>
