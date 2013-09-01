@@ -37,7 +37,7 @@
       <tr>
         <th nowrap>Where</td>
         <td>
-        	<%= show.venue %><br>
+        	<%= show.venue %> <%= '(in ' + show.area + ')' if !show.area.blank? %><br>
           <%= link_to show.address + ' ' + show.city + ', ' + show.state + ' ' + show.zip.to_s, 'http://www.google.com/maps/preview#!q=' + '+' + show.address + '+' + show.city + '+' + show.state + '+' + show.zip.to_s + '+' + show.country %>
         </td>
       </tr> 
