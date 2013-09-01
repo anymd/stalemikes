@@ -10,6 +10,7 @@ class ShowsController < ApplicationController
   def create
   	@show = Show.new(params[:show])
     @show.end_time = nil if !params[:include_end_time]
+    @show.filepicker_url = default_image if !params[:filepicker_url]
     @show.user = current_user
     @show.verified_at = Time.now
     @history = History.new(:set_attributes => params[:show], :user_id => current_user.id)
@@ -47,6 +48,7 @@ class ShowsController < ApplicationController
   def update
     if current_user == @show.user
     	@show.update_attributes(params[:show])
+      @show.filepicker_url = default_image if !params[:filepicker_url]
       
       if @show.verified_at < Time.now - 1.week
         @show.verified_at = Time.now
@@ -66,13 +68,18 @@ class ShowsController < ApplicationController
 
   private
 
-  def find_show
-  	@show = Show.find(params[:id])
+  def default_image
+    filename = 'https://www.filepicker.io/api/file/' + [
+      'PrJX9kv0Qo2Kw0ILIw2B',
+      'RigJkd7uQ82WPHPDSNLb',
+      'ZNcwaZV9SQmyFyHIyXML',
+      '1IzvVzXPRqWei3lDeHff',
+      'DTCVgG8LT8suHYdawITU',
+      'Jx0rw3ezRZSC8dUHWK3W'].sample
   end
 
-  def default_image
-    @show.filepicker_url ||= "http://lorempixel.com/460/140/nightlife/" + [*2..10].sample.to_s
-    @show.save
+  def find_show
+  	@show = Show.find(params[:id])
   end
 
 end

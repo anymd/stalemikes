@@ -12,9 +12,11 @@
 		    <li>signed in as <strong><%= current_user.name.downcase %></strong></li>
 		    <li><%= link_to "sign out", signout_path, id: "sign_out" %></li>
 		  <% else %>
-		    <li><%= link_to "sign in with facebook", "/auth/facebook", id:   "sign_in" %></li>
+		  </ul>
+		   <div class="signin-text">Do you run a recurring comedy show?
+		    <%= link_to "sign in with facebook", "/auth/facebook", id: "sign_in", :class => 'signin' %> and list it now!</div>
 		  <% end %>
-		</ul>
+		
   </div>
 
 </div>

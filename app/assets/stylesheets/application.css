@@ -65,10 +65,6 @@ body {
   float: left;
 }
 
-.show-box:hover div {
-  color: black;
-}
-
 .menu {
   float: right;
 }
@@ -456,26 +452,32 @@ div.shadow {
   margin-left: 200px;
 }
 
-.ongoing {
-  background-color: #ceffd3;
+.show-status-1  {
+  display: none;
+}
+
+.show-status-2  {
+  background-color: #fffcaf;
+  font-weight: bold;
   padding: 5px;
   margin-bottom: 5px;
 }
 
-.onhiatus {
-  background-color: #ffffb2;
+.show-status-3  {
+  background-color: red;
+  color: white;
+  font-weight: bold;
   padding: 5px;
   margin-bottom: 5px;
 }
 
-.startingsoon {
-  background-color: #ceceff;
-  padding: 5px;
-  margin-bottom: 5px;
+.signin {
+  text-decoration: underline !important;
+  font-weight: bold;
+  font-size: 16px;
 }
 
-.canceled {
-  background-color: #ffb2b2;
-  padding: 5px;
-  margin-bottom: 5px;
+.signin-text {
+  font-size: 16px;
+  text-align: right;
 }

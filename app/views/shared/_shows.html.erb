@@ -14,10 +14,7 @@
  
   <%= button_to "edit", edit_show_path(show), :method => :get, :class => 'edit-show' if current_user && params[:action] == 'show' && params[:controller] == 'users' %>
 
-          <% if params[:status] == 'all' || (params[:controller] == 'users' && current_user) %><div class="show-status
-          <%= show.status.downcase.gsub(/\s/,'') %>
-          "><%= show.status %></div>
-          <% end %>
+          <div class="show-status-<%= show.status(:id) %>"><%= show.status.upcase %></div>
 
           <% if show.filepicker_url %>
           <div class="image">

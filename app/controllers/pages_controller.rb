@@ -8,10 +8,10 @@ helper :all
     conditions[:day] = params[:day] unless params[:day].blank?
     if params[:status] == 'all' 
     else
-      conditions[:status] = [1,2]
+      conditions[:status] = [1]
     end
     conditions[:show_type] = params[:type] unless params[:type].blank?
-    @shows = Show.find(:all, :conditions => conditions, :order => 'status, verified_at DESC')
+    @shows = Show.find(:all, :conditions => conditions, :order => 'verified_at DESC')
     @metro_areas = MetroArea.all
   end
 

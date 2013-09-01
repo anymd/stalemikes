@@ -23,9 +23,8 @@ ActiveEnum.define do
 
   enum(:status) do
     value 1 => 'Active'
-    value 2 => 'Starting soon'
-    value 3 => 'On hiatus'
-    value 4 => 'Canceled'
+    value 2 => 'On hiatus'
+    value 3 => 'Canceled'
   end
 
   enum(:frequency) do

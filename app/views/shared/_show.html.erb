@@ -17,7 +17,7 @@
     <table class="show-table">
       <tr>
         <th nowrap>Status</td>
-        <td><%= show.status %></td>
+        <td><%= show.status.upcase if show.status(:id) == 1 %><div class="show-status-<%= show.status(:id) %>"><%= show.status.upcase %></div></td>
       </tr>
       <tr>
       	<th nowrap>Last Verified</th>

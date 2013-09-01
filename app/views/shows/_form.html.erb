@@ -45,14 +45,11 @@ $(document).ready(function(){
 
     <%= f.input :metro_area_id, :as => :select, :collection => MetroArea.all, :include_blank => '--Select--', :required => true %>
 
-    <% if params[:action] == 'new' %>
-      <% status_collection = Status.to_select[0..1] %>
+    <% if params[:action => 'new'] %>
+      <%= f.input :status, :as => :hidden, :value => 1 %>
     <% else %>
-      <% status_collection = Status.to_select %>
+      <%= f.input :status, :as => :select, :label => 'Status', :collection => Status.to_select, :selected => @show.status(:id), :include_blank => '--Select--', :required => true %>
     <% end %>
-
-
-    <%= f.input :status, :as => :select, :label => 'Status', :collection => status_collection, :selected => @show.status(:id), :include_blank => '--Select--', :required => true %>
 
     <%= f.input 'start_time', :label => 'Start Time', :as => :time, :ampm => true, :minute_step => 15, :default => Time.new(2000,1,1,20,0,0), :required => true %>
   <div class="include-end-time">
