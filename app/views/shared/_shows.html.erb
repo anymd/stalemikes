@@ -2,15 +2,22 @@
 
 <div id="container" class="js-masonry">
 
-
 <% if @shows.size == 0 %>
   <div class="no-results">There are no shows that match the filter :(</div>
 <% end %>
 
   <% @shows.each do |show| %>
 
-    <div class="show-box shadow"<% unless show.updated_at > DateTime.now - 1.month %> style="opacity: 0.2"<% end %>>
-  <%= link_to "edit", edit_show_path(show), :class => 'edit-show' if current_user && params[:action] == 'show' && params[:controller] == 'users' %>
+      <% opacity = 1 - ((calculate_age(Time.now) - calculate_age(show.verified_at)).to_f / 170).abs %>
+      
+    <div class="show-box shadow"<% unless show.verified_at > DateTime.now - 1.month %> style="opacity: <%= opacity %>"<% end %>>
+ 
+  <%= button_to "edit", edit_show_path(show), :method => :get, :class => 'edit-show' if current_user && params[:action] == 'show' && params[:controller] == 'users' %>
+
+          <% if params[:status] == 'all' || (params[:controller] == 'users' && current_user) %><div class="show-status
+          <%= show.status.downcase.gsub(/\s/,'') %>
+          "><%= show.status %></div>
+          <% end %>
 
           <% if show.filepicker_url %>
           <div class="image">
@@ -49,7 +56,7 @@
           <div class="fresh">
           <% if show.verified_at > DateTime.now - 1.month %><%= image_tag 'fresh.png' %><% end %></div>
       </div> 
- 
+
     </div>
 
   <% end %>

@@ -455,3 +455,27 @@ div.shadow {
 .include-end-time {
   margin-left: 200px;
 }
+
+.ongoing {
+  background-color: #ceffd3;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.onhiatus {
+  background-color: #ffffb2;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.startingsoon {
+  background-color: #ceceff;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.canceled {
+  background-color: #ffb2b2;
+  padding: 5px;
+  margin-bottom: 5px;
+}

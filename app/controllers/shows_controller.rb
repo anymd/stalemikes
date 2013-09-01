@@ -12,7 +12,10 @@ class ShowsController < ApplicationController
     @show.end_time = nil if !params[:include_end_time]
     @show.user = current_user
     @show.verified_at = Time.now
+    @history = History.new(:set_attributes => params[:show], :user_id => current_user.id)
   	if @show.save
+      @history.show_id = @show.id
+      @history.save
   	  redirect_to root_path
   	else
       flash[:notice] = "Please fill in all required fields (highlighted in red)"
@@ -43,9 +46,15 @@ class ShowsController < ApplicationController
   def update
     if current_user == @show.user
     	@show.update_attributes(params[:show])
-      @show.verified_at = Time.now
+      
+      if @show.verified_at < Time.now - 1.week
+        @show.verified_at = Time.now
+      end
+      
       @show.end_time = nil if !params[:include_end_time]
+      @history = History.new(:set_attributes => params[:show], :user_id => current_user.id, :show_id => @show.id)
       if @show.save
+        @history.save
         render :show
       else
         flash[:notice] = "Please fill in all required fields (highlighted in red)"

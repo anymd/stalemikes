@@ -43,6 +43,8 @@ gem 'rails', '3.2.12'
 
 gem 'pg'
 
+gem 'ruby', '2.0.0'
+
 gem 'masonry-rails'
 gem "filepicker-rails", git: "git://github.com/maxtilford/filepicker-rails.git"
 gem 'active_enum'

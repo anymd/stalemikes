@@ -34,4 +34,14 @@
     </ul>  
   </div>
 
+  <div class="status">  
+    Status
+    <ul class="filter">
+      <li><%= link_to 'Any', request.parameters.merge({:status => ''}) %></li>
+      <% Status.to_select.each do |status| %>
+        <li><%= link_to status[0], request.parameters.merge({:status => status[1]}) %></li>
+      <% end %>
+    </ul>  
+  </div>
+
 </div>

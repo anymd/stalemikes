@@ -2,8 +2,6 @@ notes:
 
 issues:
 
-need model validations
-
 display options:
 show map by show on home page (off by default)
 
@@ -46,15 +44,6 @@ get domain name
 
 email show listers after a month from last verification to ask to reverify show, should be a simple click yes or no in email or on edit show page
 
-map on show page
-
-more info on show 'card'
--booking info
--show web site
--venue web site
-
-make default image for show
-
 add facebook like button for stale mikes
 add facebook like button for each show?
 
@@ -65,7 +54,12 @@ need favicon
 
 explain with filepicker that a square image is best
 
+DONE
 resize filepicker image on edit page
-
-
-
+need model validations
+map on show page
+more info on show 'card'
+-booking info
+-show web site
+-venue web site
+make default image for show
