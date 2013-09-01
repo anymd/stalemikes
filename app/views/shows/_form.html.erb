@@ -69,6 +69,7 @@ $(document).ready(function(){
     <%= f.input 'signup_time', :label => false, :as => :time, :ampm => true, :minute_step => 15, prompt: {hour: '--', minute: '--'} %>
     </div>
     <%= f.input 'address', :label => 'Adress', :required => true %>
+    <%= f.input 'area', :label => 'Area (e.g. East Bay)' %>
     <%= f.input 'city', :label => 'City', :required => true %>
     <%= f.input 'state', :label => 'State', :collection => State.to_select, :selected => @show.state(:id), :include_blank => '--Select--', :required => true %>
     <%= f.input 'zip', :label => 'Zip', :as => :string, :required => true %>
