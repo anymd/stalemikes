@@ -8,7 +8,7 @@ helper :all
     conditions[:day] = params[:day] unless params[:day].blank?
     if params[:status] == 'all' 
     else
-      conditions[:status] = 1
+      conditions[:status] = [1,2]
     end
     conditions[:show_type] = params[:type] unless params[:type].blank?
     @shows = Show.find(:all, :conditions => conditions, :order => 'status, verified_at DESC')

@@ -16,11 +16,12 @@ class ShowsController < ApplicationController
   	if @show.save
       @history.show_id = @show.id
       @history.save
-  	  redirect_to root_path
+  	  render :show
   	else
       flash[:notice] = "Please fill in all required fields (highlighted in red)"
   	  render :new
   	end
+
   end
 
   def show

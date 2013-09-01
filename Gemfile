@@ -94,6 +94,7 @@ gem 'rails_12factor'
 ruby '2.0.0'
 
 group :development, :test do
+  ruby '1.9.3'
   gem "nyan-cat-formatter"
   gem 'shoulda'
   gem 'rspec'

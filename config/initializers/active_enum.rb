@@ -22,7 +22,7 @@ ActiveEnum.define do
   end
 
   enum(:status) do
-    value 1 => 'Ongoing'
+    value 1 => 'Active'
     value 2 => 'Starting soon'
     value 3 => 'On hiatus'
     value 4 => 'Canceled'

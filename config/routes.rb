@@ -3,6 +3,7 @@ Stagetime::Application.routes.draw do
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
+  # root :to => redirect('/404.html')
   root :to => "pages#index"
 
   resources :shows
