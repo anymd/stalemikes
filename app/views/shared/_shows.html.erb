@@ -26,7 +26,7 @@
           </div>
           <% end %>
         
-        <div class="show-name"><%= show.name.upcase %></div>
+        <div class="show-name"><%= link_to show.name.upcase, show_path(show) %></div>
   
         @ <b><%= show.venue %></b><br>
         <%= show.address %> <%= '(' + show.area + ')' if !show.area.blank? %><br><%= show.city %>, <%= show.state %> <%= show.zip %> <%= show.country if show.country != 'United States' %>
