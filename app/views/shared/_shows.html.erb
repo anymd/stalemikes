@@ -29,7 +29,7 @@
         <div class="show-name"><%= show.name.upcase %></div>
   
         @ <b><%= show.venue %></b><br>
-        <%= show.address %> <%= '(in ' + show.area + ')' if !show.area.blank? %><br><%= show.city %>, <%= show.state %> <%= show.zip %> <%= show.country if show.country != 'United States' %>
+        <%= show.address %> <%= '(' + show.area + ')' if !show.area.blank? %><br><%= show.city %>, <%= show.state %> <%= show.zip %> <%= show.country if show.country != 'United States' %>
           <ul>
           <li><% if show.frequency(:id) != 1 %>
             <%= show.frequency %> <%= show.day %> of the month
