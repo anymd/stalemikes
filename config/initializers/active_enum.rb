@@ -33,8 +33,9 @@ ActiveEnum.define do
     value 3 => '2nd'
     value 4 => '3rd'
     value 5 => '4th'
-    value 6 => '1st & 3rd'
-    value 7 => '2nd & 4th'
+    value 6 => 'Last'
+    value 7 => '1st & 3rd'
+    value 8 => '2nd & 4th'
   end
 
   enum(:day) do

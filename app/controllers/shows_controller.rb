@@ -12,7 +12,7 @@ class ShowsController < ApplicationController
   	@show = Show.new(params[:show])
     @show.status =  1
     @show.end_time = nil if !params[:include_end_time]
-    @show.filepicker_url = default_image if !params[:filepicker_url]
+    @show.filepicker_url = default_image if !@show.filepicker_url
     @show.user = current_user
     @show.verified_at = Time.now
     @history = History.new(:set_attributes => params[:show], :user_id => current_user.id)
@@ -51,7 +51,7 @@ class ShowsController < ApplicationController
   def update
     if current_user == @show.user
     	@show.update_attributes(params[:show])
-      @show.filepicker_url = default_image if !params[:filepicker_url]
+      @show.filepicker_url = default_image if !@show.filepicker_url
       
       if @show.verified_at < Time.now - 1.week
         @show.verified_at = Time.now
