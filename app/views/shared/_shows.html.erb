@@ -8,7 +8,11 @@
 
   <% @shows.each do |show| %>
 
-      <% opacity = 1 - ((calculate_age(Time.now) - calculate_age(show.verified_at)).to_f / 170).abs %>
+      <% if params[:controller] = 'users' %>
+        <% opacity = 1 %>
+      <% else %>
+        <% opacity = 1 - ((calculate_age(Time.now) - calculate_age(show.verified_at)).to_f / 170).abs %>
+      <% end %>
       
     <div class="show-box shadow"<% unless show.verified_at > DateTime.now - 1.month %> style="opacity: <%= opacity %>"<% end %>>
  
