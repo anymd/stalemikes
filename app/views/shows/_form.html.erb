@@ -36,7 +36,6 @@ $(document).ready(function(){
 
 </script>
 
-
 <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
   <% end %>
@@ -45,8 +44,7 @@ $(document).ready(function(){
 
     <%= f.input :metro_area_id, :as => :select, :collection => MetroArea.all, :include_blank => '--Select--', :required => true %>
 
-    <% if params[:action => 'new'] %>
-      <%= f.input :status, :as => :hidden, :value => 1 %>
+    <% if !@show.status %>
     <% else %>
       <%= f.input :status, :as => :select, :label => 'Status', :collection => Status.to_select, :selected => @show.status(:id), :include_blank => '--Select--', :required => true %>
     <% end %>
@@ -88,7 +86,7 @@ $(document).ready(function(){
     <div class="filepicker-image-input">
         Show Photo
     <%= f.filepicker_field 'filepicker_url', :label => 'Show Image', :button_text => 'upload file', :extensions => '.png,.jpg,.gif', :multiple => false, :dragdrop => true %> </div>
-    <%= f.input 'notes', :label => 'How to get booked (include email or phone number, etc.)' %> 
+    <%= f.input 'notes', :label => 'Booking instructions' %> 
      <div class="form-button">
     <%= f.button :submit %>
     </div>

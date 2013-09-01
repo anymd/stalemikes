@@ -5,10 +5,12 @@ class ShowsController < ApplicationController
   
   def new
   	@show = Show.new
+    @show.country = 'United States'
   end
 
   def create
   	@show = Show.new(params[:show])
+    @show.status =  1
     @show.end_time = nil if !params[:include_end_time]
     @show.filepicker_url = default_image if !params[:filepicker_url]
     @show.user = current_user
