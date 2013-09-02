@@ -481,3 +481,7 @@ div.shadow {
   font-size: 16px;
   text-align: right;
 }
+
+.small-text {
+  font-size: 11px;
+}

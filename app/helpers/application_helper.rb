@@ -20,5 +20,9 @@ require 'date'
     days=(a-b).to_i
     return days
   end
+
+  def admin
+    3
+  end
   
 end

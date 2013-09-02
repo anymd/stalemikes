@@ -45,7 +45,12 @@
           
             <% if show.charge.size > 0 %><li>Cost to perform: <%= show.charge %>
           </li><% end %>
-          <li>Organized by <%= show.user.name %></li>
+          <li><% if show.user.admin? %>
+              Listed by Stale Mikes<br><span class='small-text'><%= link_to 'message us', 'http://facebook.com/stalemikes', :class => 'small-text' %>  if you are the organizer</span>
+              <% else %>
+                Organized by <%= show.user.name %>
+              <% end %>
+          </li>
         </ul>
         <div class="booking-info">
           <%= button_to "more info", show_path(show), :method => "get", :class => "button" %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130901204345) do
+ActiveRecord::Schema.define(:version => 20130902032103) do
 
   create_table "histories", :force => true do |t|
     t.text     "set_attributes"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20130901204345) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.boolean  "is_admin"
   end
 
 end
