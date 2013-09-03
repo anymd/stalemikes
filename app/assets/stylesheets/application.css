@@ -406,7 +406,7 @@ div.shadow {
   display: none;
 }
 
-.metro-area, .day, .type {
+.metro-area, .day, .type, .view {
   float: left; 
   margin-right: 15px;
 }
@@ -484,4 +484,27 @@ div.shadow {
 
 .small-text {
   font-size: 11px;
+}
+
+.shows-list-table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: white;
+}
+
+.shows-list-table th {
+  background-color: #ccc;
+}
+
+.shows-list-table td, .shows-list-table th {
+  text-align: left;
+  border: 1px dotted black;
+  padding: 10px;
+  font-size: 13px;
+  vertical-align: top;
+}
+
+.show-name {
+  font-weight: bold;
+  font-size: 14px;
 }

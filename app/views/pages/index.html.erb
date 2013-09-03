@@ -9,9 +9,11 @@ Stale Mikes requires comedy bookers to regularly verify their show is still aliv
 
 <%= render 'pages/filter' %>
 
-<div id="show-box">
-
-<%= render 'shared/shows' %>
-</div>
-
+<% if params[:view] == 'grid' %>
+  <div id="show-box">
+   <%= render 'shared/shows' %>
+  </div>
+<% else %>
+  <%= render 'shared/show_list' %>
+<% end %>
 

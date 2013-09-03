@@ -2,16 +2,27 @@
 
 $(document).ready(function(){
 
+  document.getElementById('view').value = $("#view").val();
   document.getElementById('metro').value = $("#metro").val();
   document.getElementById('day').value = $("#day").val();
   document.getElementById('type').value = $("#type").val();
   document.getElementById('status').value = $("#status").val();
-  
+
 });
 
 </script>
 
 <div class="filter">
+
+  <div class="view"> 
+    View
+    <select id="view" name"view" onchange="document.location.href = '?' + 'view=' + this.value + '&metro=<%= params[:metro] %>' + '&day=<%= params[:day] %>&type=<%= params[:type] %>' + '&status=<%= params[:status] %>'">
+      
+        <option value="list">List</option>
+        <option value="grid"
+        <% if params[:view] == 'grid' %> selected<% end %>>Grid</option>
+    </select>  
+  </div>
 
   <div class="metro-area"> 
     Metro Area

@@ -1,0 +1,60 @@
+<div id="container">
+
+<% if @shows.size == 0 %>
+  <div class="no-results">There are no shows that match the filter :(</div>
+<% end %>
+
+  <table class="shows-list-table">
+    <thead>
+      <tr>
+        <th>Show</th>
+        <th>When</th>
+        <th>Booking Info</th>
+        <th>Links</th>
+        <th>Last Verified</th>
+      </tr> 
+    </thead> 
+
+    <tbody>
+    <% @shows.each do |show| %>
+      <tr> 
+        <td nowrap><%= link_to show.name, show, :class => 'show-name' %><br><b>@ <%= show.venue %></b><br>
+            <%= show.address %> <%= '(' + show.area + ')' if !show.area.blank? %><br><%= show.city %>, <%= show.state %> <%= show.zip %>
+            <% if show.country != 'United States' %>
+              <br><%= show.country %>
+            <% end %>
+          </td>   
+        <td nowrap>
+          <% if show.frequency(:id) != 1 %>
+            <%= show.frequency %> <%= show.day %> of the month
+          <% else %>
+            <%= show.frequency %> on <%= show.day.pluralize %> 
+          <% end %>
+
+
+          <br>
+          <%= show.start_time.strftime("%l:%M %p") if show.start_time %> <%= ' to' + show.end_time.strftime("%l:%M %p") if show.end_time %>
+        </td>             
+        <td><ul class="booking-info-list">
+            <li><%= show.show_type %> <% if show.show_type(:id) == 1 %>/ Signup at <%= show.signup_time.strftime("%l:%M %p") %><% end %></li>
+            <% if show.charge.size > 0 %><li>Cost to perform: <%= show.charge %></li><% end %>
+            <% if show.notes.size > 0 %><li><%= show.notes %></li><% end %>
+
+            <li>
+              <% if show.user.admin? %>
+                Listed by Stale Mikes<br><span class='small-text'><%= link_to 'message us', 'http://facebook.com/stalemikes', :class => 'small-text' %>  if you are the organizer</span>
+              <% else %>
+                Organized by <%= show.user.name %>
+              <% end %>
+            </li>
+          </ul></td> 
+        <td><%= link_to 'website', show.web_site if !show.web_site.blank? %> <%= link_to 'facebook', show.facebook_link if !show.facebook_link.blank? %> <%=  link_to 'twitter', 'http://twitter.com/' + show.twitter_name if !show.twitter_name.blank? %></td>  
+        <td nowrap><%= time_ago_in_words(show.verified_at) %> ago</td> 
+      </tr> 
+    <% end %>
+  </tbody>
+  </table>
+
+</div>
+
+ 
