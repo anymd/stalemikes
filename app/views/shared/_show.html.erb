@@ -3,6 +3,14 @@
 <div><%= link_to 'Back to list of shows', root_path %></div>
 <div class="show-box-large shadow">
 
+  <% if show.verified_at < DateTime.now - 1.month %>       
+    <div class="verify-it">
+      <div class="still-happening">Is this show still happening?</div>
+      <div class="verify-button">
+        <%=  link_to_modal "VERIFY IT", "#verify-" + show.id.to_s, :class=>"button" %></div>
+    </div>
+  <% end %>
+
   <% if show.filepicker_url %>
   <div class="image-large">
       <%= image_tag show.filepicker_url, :width => 460, :height => 140 %>
@@ -21,7 +29,21 @@
       </tr>
       <tr>
       	<th nowrap>Last Verified</th>
-        <td><%= time_ago_in_words(show.verified_at) %> ago</td>
+        <td><%= time_ago_in_words(show.verified_at) %> ago by 
+          <% if show.verifications.last %>
+            <%= link_to show.verifications.last.user.name, 'http://facebook.com/' + show.verifications.last.user.uid %>
+          <% else %>
+            <%= link_to show.user.name, 'http://facebook.com/' + show.user.uid  %>
+          <% end %>
+          <% if show.verified_at > DateTime.now - 1.month %>
+            
+          <% else %>
+            <br><div class="still-happening-text">Is this show still happening?</div><br><%=  link_to_modal "VERIFY IT", "#verify-" + show.id.to_s, :class=>"button" %><br><br>
+          <% end %>
+          <div class="fresh">
+          <% if show.verified_at > DateTime.now - 1.month %><%= image_tag 'fresh.png' %><% end %></div>
+
+        </td>
       </tr>            	
       <tr>
         <th nowrap>When</td>
@@ -92,4 +114,4 @@
 
 </div>
 
-
+<%= render 'shared/verify_it', :show => show %>

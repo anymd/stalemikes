@@ -1,0 +1,30 @@
+<div id="verify-<%= show.id %>" class="verify-description" style="display: none; ">
+  <div class="verify-it">VERIFY IT</div>
+  <% if current_user %>
+  <p>
+    <h3>Are you sure this show is alive and well?</h3>
+    <b><%= show.name %></b><br>
+   @ <%= show.venue %><br>
+   <%= show.address + ' ' + show.city + ', ' + show.state + ' ' + show.zip.to_s %><%=  show.country if show.country != 'United States' %><br>
+    <% if show.frequency(:id) != 1 %>
+      <%= show.frequency %> <%= show.day %> of the month
+    <% else %>
+      <%= show.frequency %> on <%= show.day.pluralize %> 
+    <% end %> at <%= show.start_time.strftime("%l:%M %p") %><br><br>
+<span style="font-size: 12px;"><i>The show will be updated like this:</i><br>
+"Verified <%= time_ago_in_words(Time.now) %> ago by <%= current_user.name %>"</span><br><br>
+
+<div class="verify-buttons">
+  <%= form_for show, :method => :put do |f| %>
+    <%= f.hidden_field :verified_at, :value => Time.now %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.submit "Yes! This show is still happening", :class => 'button' %>
+  <% end %><br>
+  <%= link_to 'I\'m not sure', '/', :rel => "modal:close" %>
+</div>
+
+    </p>
+<% else %>
+ You must be signed in to verify a show.
+<% end %>
+</div>
