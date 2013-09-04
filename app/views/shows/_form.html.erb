@@ -87,7 +87,7 @@ $(document).ready(function(){
     <div class="filepicker-image-input">
         Show Photo
     <%= f.filepicker_field 'filepicker_url', :label => 'Show Image', :button_text => 'upload file', :extensions => '.png,.jpg,.gif', :multiple => false, :dragdrop => true %> </div>
-    <%= f.input 'notes', :label => 'Booking instructions' %> 
+    <%= f.input 'notes', :maxlength => 700, :label => 'Booking instructions' %> 
      <div class="form-button">
     <%= f.button :submit %>
     </div>
