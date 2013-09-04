@@ -65,6 +65,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'jquery-ui-rails'
+gem 'jquery-modal-rails'
 gem 'jquery-rails'
 gem 'omniauth-facebook', '~> 1.4.1'
 gem 'faker'
