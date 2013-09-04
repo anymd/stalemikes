@@ -11,7 +11,8 @@ class User < ActiveRecord::Base
   	  user.name = auth.info.name
   	  user.oauth_token = auth.credentials.oauth_token
   	  user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-  	  user.save!
+  	  user.name = 'Stale Mikes' if user.is_admin
+      user.save!
     end	  
   end
 
