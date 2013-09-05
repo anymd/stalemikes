@@ -1,0 +1,57 @@
+[0.9.12] : 2012-09-11
+- Fixes for generator config template and doc updates. [kuraga]
+
+[0.9.11] : 2012-08-18
+- Use the name key as default value for the name in I18n storage. [kengos]
+
+[0.9.10] : 2012-07-18
+- Fix I18n storage for meta data. [kengos]
+
+[0.9.9] : 2012-07-08
+- Really fix Railtie issue this time.
+
+[0.9.8] : 2012-07-02
+- Add I18n storage backend
+- Fix load order issue when relying on Railtie to load ActiveRecord support.
+- Add support for simple_form v2.
+
+[0.9.7] : 2011-12-11
+- Add Formtastic 2 form helper. [fbuenemann]
+
+[0.9.6] : 2011-09-13
+- Fix regression in active_enum_for in models without enumerated attributes. (issue #8). [jasoncodes]
+
+[0.9.5] : 2011-09-11
+- Fix regression in enumerate method to not override set of enumerated attributes with each call. [TeWu]
+
+[0.9.4] : 2011-09-08
+- Replaced usage of deprecated class_inheritable_accessor with class_attribute.
+
+[0.9.3] : 2011-07-31
+- Add Railtie for proper loading of ActiveRecord extensions.
+
+[0.9.2] : 2011-07-31
+- Deprecate :as_defined order in favour of :natural.
+- Allow storage options to passed to ActiveEnum.storage = :foo, :bar => true.
+- Also allow ActiveEnum.storage_options = { :bar => true }
+
+[0.9.1] : 2011-01-12
+- Fix SimpleForm helper for v1.3.0 with backwards compat.
+
+[0.9.0] : 2010-08-11
+- Full ActiveModel support for enumerate extension. Use ActiveEnum.extend_classes array to indicate classes to extend.
+- Added generator for initializer config file with all settings.
+- Added setup block for config
+
+[0.8.2] : 2010-08-01
+- Fix method name clash of enum_for which is defined on Object
+- Refactor extension method definitions
+
+[0.8.1] : 2010-07-19
+- Enumerated attribute read method can access meta data using key as argument
+
+[0.8.0] : 2010-07-19
+- Added pluggable storage API
+- Added memory store as default storage
+- Added meta data storage per value has a hash
+- Added enum .meta method to access meta data
