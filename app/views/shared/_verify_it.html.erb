@@ -16,8 +16,6 @@
 
 <div class="verify-buttons">
   <%= form_for show, :method => :put do |f| %>
-    <%= f.hidden_field :verified_at, :value => Time.now %>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
     <%= f.submit "Yes! This show is still happening", :class => 'button' %>
   <% end %><br>
   <%= link_to 'I\'m not sure', '/', :rel => "modal:close" %>

@@ -66,6 +66,12 @@ class ShowsController < ApplicationController
         flash[:notice] = "Please fill in all required fields (highlighted in red)"
         render :new
       end
+    else
+      @show.verified_at = Time.now
+      verification = Verification.new(:user_id => current_user.id, :show_id => @show.id)
+      @show.verifications << verification
+      @show.save
+      render :show
     end
   end
 
