@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
       user.friend_count = get_friends['friends']['data'].count
   	  user.oauth_expires_at = Time.at(auth.credentials.expires_at)
   	  user.name = 'Stale Mikes' if user.is_admin
+      user.uid = 'stalemikes' if user.is_admin
       user.save!
     end	  
   end
