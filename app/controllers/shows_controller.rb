@@ -67,10 +67,12 @@ class ShowsController < ApplicationController
         render :new
       end
     else
-      @show.verified_at = Time.now
-      verification = Verification.new(:user_id => current_user.id, :show_id => @show.id)
-      @show.verifications << verification
-      @show.save
+      if current_user.friend_count >= 100 || current_user.admin?
+        @show.verified_at = Time.now
+        verification = Verification.new(:user_id => current_user.id, :show_id => @show.id)
+        @show.verifications << verification
+        @show.save
+      end
       render :show
     end
   end

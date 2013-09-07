@@ -9,7 +9,11 @@ class User < ActiveRecord::Base
   	  user.provider = auth.provider
   	  user.uid = auth.uid
   	  user.name = auth.info.name
-  	  user.oauth_token = auth.credentials.oauth_token
+  	  user.oauth_token = auth['credentials']['token']
+
+      url = 'https://graph.facebook.com/' + user.uid.to_s + '?fields=id,friends&access_token=' + user.oauth_token.to_s
+      get_friends = HTTParty.get("#{url}")
+      user.friend_count = get_friends['friends']['data'].count
   	  user.oauth_expires_at = Time.at(auth.credentials.expires_at)
   	  user.name = 'Stale Mikes' if user.is_admin
       user.save!

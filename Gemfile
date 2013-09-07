@@ -77,6 +77,7 @@ gem 'country-select'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'possessive'
+gem 'httparty'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

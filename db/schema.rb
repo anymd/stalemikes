@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130904063557) do
+ActiveRecord::Schema.define(:version => 20130907111623) do
 
   create_table "histories", :force => true do |t|
     t.text     "set_attributes"
@@ -66,9 +66,11 @@ ActiveRecord::Schema.define(:version => 20130904063557) do
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.boolean  "is_admin"
+    t.integer  "friend_count"
+    t.string   "profile_image_url"
   end
 
   create_table "verifications", :force => true do |t|
