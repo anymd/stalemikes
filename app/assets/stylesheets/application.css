@@ -567,5 +567,13 @@ div.shadow {
  list-style-position:inside
 }
 
+.calendar-fresh {
+  color: green;
+  font-weight: bold;
+}
 
+.calendar-stale {
+  color: red;
+  font-weight: bold;
+}
 

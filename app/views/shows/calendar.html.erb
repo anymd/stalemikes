@@ -42,7 +42,7 @@ Metro Area: <select id="metro" name"metro_area" onchange="document.location.href
           <li><%= s.show_type %></li>
           <% if s.show_type(:id) == 1 %>
           <li>Signup at <%= s.signup_time.strftime("%l:%M %p") %></li><% end %>
-          <li>Last verified <%= time_ago_in_words(s.verified_at) %> ago</li>
+          <li><span class="<% if s.fresh? %>calendar-fresh<% else %>calendar-stale<% end %>">Last verified <%= time_ago_in_words(s.verified_at) %> ago</span><br><%= image_tag 'fresh.png' if s.fresh? %></li>
         </ul>  
         <hr>
       <% end %>
