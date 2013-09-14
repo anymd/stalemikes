@@ -549,8 +549,9 @@ div.shadow {
 }
 
 .calendar {
-  padding: 10px;
   width: 100%;
+  background-color: white;
+  border-collapse: collapse;
 }
 
 .calendar td, .calendar th {
@@ -558,6 +559,11 @@ div.shadow {
   padding: 10px;
   border: 1px solid black;
   font-size: 12px;
+}
+
+.calendar th {
+  background-color: grey;
+  color: white;
 }
 
 .calendar ul  {

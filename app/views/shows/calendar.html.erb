@@ -1,4 +1,4 @@
-<h1><%= @metro['name'] %> Metro Area</h1>
+<h2><%= @metro['name'] %> Metro Area</h2>
 
 Metro Area: <select id="metro" name"metro_area" onchange="document.location.href = this.value">
       <% MetroArea.all.each do |metro_area| %>
@@ -44,7 +44,7 @@ Metro Area: <select id="metro" name"metro_area" onchange="document.location.href
           <li>Signup at <%= s.signup_time.strftime("%l:%M %p") %></li><% end %>
           <li><span class="<% if s.fresh? %>calendar-fresh<% else %>calendar-stale<% end %>">Last verified <%= time_ago_in_words(s.verified_at) %> ago</span><br><%= image_tag 'fresh.png' if s.fresh? %></li>
         </ul>  
-        <hr>
+        <% if s != these.last %><hr><% end %>
       <% end %>
     </td>
     <% end %>
