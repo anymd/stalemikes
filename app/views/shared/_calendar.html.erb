@@ -1,16 +1,4 @@
-<h2><%= @metro['name'] %> Metro Area</h2>
 
-Metro Area: <select id="metro" name"metro_area" onchange="document.location.href = '/calendar/' + this.value">
-      <% MetroArea.all.each do |metro_area| %>
-        <option value="<%= metro_area.id %>" 
-          <% if params[:metro].to_s == metro_area.id.to_s %>
-            selected
-          <% end %>
-          ><%= metro_area.name %></option>
-      <% end %>
-    </select>  
-
-    <%= link_to 'Grid View', root_path + '?view=grid&metro=' + params[:metro].to_s %> | <%= link_to 'List View', root_path + '?view=list&metro=' + params[:metro].to_s %>
 
 <table class="calendar">
   <tr>
@@ -24,7 +12,7 @@ Metro Area: <select id="metro" name"metro_area" onchange="document.location.href
   </tr>
   <tr>
     <% 7.times do |day| %>
-      <% these = Show.where(:day => day + 1, :metro_area_id => @metro.id) %>
+      <% these = Show.where(:day => day + 1, :metro_area_id => params[:metro]) %>
     <td>
       <% these.each do |s| %>
         <b><%= link_to s.name, s %></b><br>
