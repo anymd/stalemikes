@@ -78,6 +78,7 @@ class ShowsController < ApplicationController
   end
 
   def calendar
+    params[:metro] = MetroArea.first.id if params[:metro].blank?
     @shows = Show.find_by_metro_area_id(params[:metro])
     @metro = MetroArea.find(params[:metro])
   end

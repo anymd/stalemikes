@@ -1,6 +1,6 @@
 <h2><%= @metro['name'] %> Metro Area</h2>
 
-Metro Area: <select id="metro" name"metro_area" onchange="document.location.href = this.value">
+Metro Area: <select id="metro" name"metro_area" onchange="document.location.href = '/calendar/' + this.value">
       <% MetroArea.all.each do |metro_area| %>
         <option value="<%= metro_area.id %>" 
           <% if params[:metro].to_s == metro_area.id.to_s %>
