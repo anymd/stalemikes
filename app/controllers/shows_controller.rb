@@ -77,6 +77,11 @@ class ShowsController < ApplicationController
     end
   end
 
+  def calendar
+    @shows = Show.find_by_metro_area_id(params[:metro])
+    @metro = MetroArea.find(params[:metro])
+  end
+
   private
 
   def default_image

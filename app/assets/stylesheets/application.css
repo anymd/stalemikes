@@ -547,3 +547,25 @@ div.shadow {
   text-align: center;
   font-size: 12px;
 }
+
+.calendar {
+  padding: 10px;
+  width: 100%;
+}
+
+.calendar td, .calendar th {
+  vertical-align: top;
+  padding: 10px;
+  border: 1px solid black;
+  font-size: 12px;
+}
+
+.calendar ul  {
+ padding-left:20px;   
+}
+.calender ul li  {
+ list-style-position:inside
+}
+
+
+

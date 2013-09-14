@@ -9,6 +9,8 @@ Stagetime::Application.routes.draw do
   resources :shows
   resources :users
 
+  get 'calendar/:metro', to: "shows#calendar"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

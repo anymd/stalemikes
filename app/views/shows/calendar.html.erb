@@ -1,0 +1,52 @@
+<h1><%= @metro['name'] %> Metro Area</h1>
+
+Metro Area: <select id="metro" name"metro_area" onchange="document.location.href = this.value">
+      <% MetroArea.all.each do |metro_area| %>
+        <option value="<%= metro_area.id %>" 
+          <% if params[:metro].to_s == metro_area.id.to_s %>
+            selected
+          <% end %>
+          ><%= metro_area.name %></option>
+      <% end %>
+    </select>  
+
+<table class="calendar">
+  <tr>
+    <th>Sunday</th>
+    <th>Monday</th>
+    <th>Tuesday</th>
+    <th>Wednesday</th>
+    <th>Thursday</th>
+    <th>Friday</th>
+    <th>Saturday</th>
+  </tr>
+  <tr>
+    <% 7.times do |day| %>
+      <% these = Show.where(:day => day + 1, :metro_area_id => @metro.id) %>
+    <td>
+      <% these.each do |s| %>
+        <b><%= link_to s.name, s %></b><br>
+        <%= s.venue %>, 
+        <%= s.address %> <%= '(' + s.area + ')' if !s.area.blank? %>, 
+        <%= s.city %>, <%= s.state %><br>
+        <ul>
+          <li><% if s.frequency(:id) != 1 %>
+          <%= s.frequency %> <%= s.day %> of the month
+          <% else %>
+            <%= s.frequency %> on <%= s.day %> 
+          <% end %>
+          </li>
+          <li>
+          <%= s.start_time.strftime("%l:%M %p") %><%= ' to ' + s.end_time.strftime("%l:%M %p") unless s.end_time == nil %>
+          </li>
+          <li><%= s.show_type %></li>
+          <% if s.show_type(:id) == 1 %>
+          <li>Signup at <%= s.signup_time.strftime("%l:%M %p") %></li><% end %>
+          <li>Last verified <%= time_ago_in_words(s.verified_at) %> ago</li>
+        </ul>  
+        <hr>
+      <% end %>
+    </td>
+    <% end %>
+  </tr>
+</table>

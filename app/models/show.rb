@@ -4,6 +4,14 @@ class Show < ActiveRecord::Base
 
   attr_accessible :name, :venue, :address, :city, :state, :zip, :country, :web_site, :facebook_link, :twitter_name, :phone, :day, :frequency, :show_type, :signup_time, :start_time, :end_time, :host_name, :price, :notes, :user_id, :status, :metro_area_id, :updated_at, :charge, :filepicker_url, :verified_at, :status, :start_date, :area
 
+  scope :sunday, -> { where(:day => '1') }
+  scope :monday, -> { where(:day => '2') }
+  scope :tuesday, -> { where(:day => '3') }
+  scope :wednesday, -> { where(:day => '4') }
+  scope :thursday, -> { where(:day => '5') }
+  scope :friday, -> { where(:day => '6') }
+  scope :saturday, -> { where(:day => '7') }
+
   has_many :verifications
 
   belongs_to :user
