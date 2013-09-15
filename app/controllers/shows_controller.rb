@@ -12,7 +12,7 @@ class ShowsController < ApplicationController
   	@show = Show.new(params[:show])
     @show.status =  1
     @show.end_time = nil if !params[:include_end_time]
-    @show.filepicker_url = default_image if !@show.filepicker_url
+    @show.filepicker_url = default_image if @show.filepicker_url.blank?
     @show.user = current_user
     @show.verified_at = Time.now
     @history = History.new(:set_attributes => params[:show], :user_id => current_user.id)
