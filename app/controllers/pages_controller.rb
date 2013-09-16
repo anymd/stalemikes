@@ -15,7 +15,14 @@ helper :all
     @metro_areas = MetroArea.all
   end
 
-
+  def filter
+    view = params[:view]
+    metro = params[:metro]
+    day = params[:day]
+    type = params[:type]
+    not_active = params[:not_active]
+    redirect_to :controller => 'pages', :action => 'index', :view => view, :metro => metro, :day => day, :type => type, :not_active => not_active
+  end
 
 end 
 

@@ -13,85 +13,72 @@ $(document).ready(function(){
 </script>
 
 <div class="filter">
-
-  <div class="view"> 
-    View
-    <select id="view" name"view" onchange="document.location.href = '?' + 'view=' + this.value + '&metro=<%= params[:metro] %>' + '&day=<%= params[:day] %>&type=<%= params[:type] %>' + '&status=<%= params[:status] %>'">
-      
+  <form name="input" action="filter" method="post">
+    <div class="view"> 
+      View
+      <select id="view" name="view" onchange="this.form.submit();">
         <option value="list">List</option>
         <option value="grid"
         <% if params[:view] == 'grid' %> selected<% end %>>Grid</option>
         <option value="calendar">Calendar</option>
-    </select>  
-  </div>
+      </select>  
+    </div>
 
-  <div class="metro-area"> 
-    Metro Area
-    <select id="metro" name"metro_area" onchange="document.location.href = '?' + 'metro=' + this.value + 
-      '&day=<%= params[:day] %>&type=<%= params[:type] %>' + '&status=<%= params[:status] %>'">
-      <option value="">Any</option>
-      <% @metro_areas.each do |metro_area| %>
-        <option value="<%= metro_area.id %>" 
-          <% if params[:metro].to_s == metro_area.id.to_s %>
-            selected
-          <% end %>
-          ><%= metro_area.name %></option>
-      <% end %>
-    </select>  
-  </div>
+    <div class="metro-area"> 
+      Metro Area
+      <select id="metro" name="metro" onchange="this.form.submit();">
+        <option value="">Any</option>
+        <% @metro_areas.each do |metro_area| %>
+          <option value="<%= metro_area.id %>" 
+            <% if params[:metro].to_s == metro_area.id.to_s %>
+              selected
+            <% end %>
+            ><%= metro_area.name %></option>
+        <% end %>
+      </select>  
+    </div>
 
-  <div class="day"> 
-    Day 
-    <select id="day" name"day" onchange="document.location.href = '?' + 'metro=<%= params[:metro] %>' + '&day=' + this.value + '&type=<%= params[:type] %>' + '&status=<%= params[:status] %>'">
-      <option value="">Any</option>
-      <% Day.to_select.each do |day| %>
-        
-        <option value="<%= day[1] %>" 
-          <% if params[:day].to_s == day[1].to_s %>
-            selected
-          <% end %>  
-          ><%= day[0] %></option>
-      <% end %>
-    </select>  
-  </div>
+    <div class="day"> 
+      Day 
+      <select id="day" name="day" onchange="this.form.submit();">
+        <option value="">Any</option>
+        <% Day.to_select.each do |day| %>
+          
+          <option value="<%= day[1] %>" 
+            <% if params[:day].to_s == day[1].to_s %>
+              selected
+            <% end %>  
+            ><%= day[0] %></option>
+        <% end %>
+      </select>  
+    </div>
 
-  <div class="type">  
-    Type
-    <select id="type" name"type" onchange="document.location.href = '?' + 'metro=<%= params[:metro] %>' + '&day=<%= params[:day] %>' + '&type=' + this.value + '&status=<%= params[:status] %>'">
-      <option value="">Any</option>
-      <% ShowType.to_select.each do |show_type| %>
-        <option value="<%= show_type[1] %>"
-          <% if params[:type].to_s == show_type[1].to_s %>
-            selected
-          <% end %>
-          ><%= show_type[0] %></option>
-      <% end %>
-    </select>   
-  </div>
+    <div class="type">  
+      Type
+      <select id="type" name="type" onchange="this.form.submit();">
+        <option value="">Any</option>
+        <% ShowType.to_select.each do |show_type| %>
+          <option value="<%= show_type[1] %>"
+            <% if params[:type].to_s == show_type[1].to_s %>
+              selected
+            <% end %>
+            ><%= show_type[0] %></option>
+        <% end %>
+      </select>   
+    </div>
 
-<!--   <div class="status">  
-    Status
-    <select id="status" name"status" onchange="document.location.href = '?' + 'metro=<%= params[:metro] %>' + '&day=<%= params[:day] %>' + '&type=<%= params[:type] %>' + '&status=' + this.value">
-      <option value="">Any</option>
-      <% Status.to_select.each do |status| %>
-        <option value="<%= status[1] %>"
-          <% if params[:status].to_s == status[1].to_s %>
-            selected
-          <% end %>
-          ><%= status[0] %></option>
-      <% end %>
-    </select>   
-  </div>
- -->
-  <div class="status">  
-    
-    <% if params[:status] == 'all' %>
-     <input type="checkbox" id="status" name"status" value="all" onchange="document.location.href = '?' + 'metro=<%= params[:metro] %>' + '&day=<%= params[:day] %>' + '&type=<%= params[:type] %>'" checked>
-    <% else %>
-     <input type="checkbox" id="status" name"status" value="all" onchange="document.location.href = '?' + 'metro=<%= params[:metro] %>' + '&day=<%= params[:day] %>' + '&type=<%= params[:type] %>' + '&status=all'">
-    <% end %>
-    include <span style="font-size: 12px">ON HIATUS, and CANCELLED</span>
+    <!-- <div class="status">  
       
-  </div>
+      <% if params[:not_active] == '0' %>
+       <input type="checkbox" id="not_active" name"not_active" value="1" onchange="this.form.submit();" checked>
+      <% else %>
+       <input type="checkbox" id="not_active" name"not_active" value="0" onchange="this.form.submit();">
+      <% end %>
+      include <span style="font-size: 12px">ON HIATUS, and CANCELLED</span>
+        
+    </div> -->
 
+  </form>
 </div>
+<br>
+

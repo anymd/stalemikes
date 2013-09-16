@@ -5,6 +5,8 @@ Stagetime::Application.routes.draw do
 
   get '/' => 'shows#calendar', constraints: { query_string: /calendar/ }
 
+  match '/filter', to: 'pages#filter', :via => :post
+
   # root :to => redirect('/404.html')
   root :to => "pages#index"
 
