@@ -15,6 +15,8 @@ bg.png: bg-6cc78ce5fb108c7082be9eb087b7891d.png
 bg/index.png: bg-6cc78ce5fb108c7082be9eb087b7891d.png
 dead.jpg: dead-0e1e8ebd135205a5622774a4768a1c0a.jpg
 dead/index.jpg: dead-0e1e8ebd135205a5622774a4768a1c0a.jpg
+facebook.png: facebook-4e1ed84df0e5e948f0c5e96339cbae0a.png
+facebook/index.png: facebook-4e1ed84df0e5e948f0c5e96339cbae0a.png
 fresh.jpg: fresh-48018854700deb9b2d566a63ae6bda3b.jpg
 fresh/index.jpg: fresh-48018854700deb9b2d566a63ae6bda3b.jpg
 fresh.png: fresh-f759606a5a41f225c15d6b68ea86183d.png
@@ -27,6 +29,10 @@ rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 stale.jpg: stale-95a135633236948a31e8b88be532211f.jpg
 stale/index.jpg: stale-95a135633236948a31e8b88be532211f.jpg
+twitter.png: twitter-9ee8d94cebf82f8a9c64efdb50bef5bb.png
+twitter/index.png: twitter-9ee8d94cebf82f8a9c64efdb50bef5bb.png
+website.png: website-ccfefa71cc796b769921f8c2b2cf85d7.png
+website/index.png: website-ccfefa71cc796b769921f8c2b2cf85d7.png
 application.js: application-a126b3250a1bd9752936431c5ff6ff3c.js
 application/index.js: application-a126b3250a1bd9752936431c5ff6ff3c.js
 application.css: application-c00702dd310cfb349ccf3b7f475611a3.css

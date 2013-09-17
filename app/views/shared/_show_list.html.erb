@@ -18,13 +18,13 @@
     <tbody>
     <% @shows.each do |show| %>
       <tr> 
-        <td nowrap><%= link_to show.name, show, :class => 'show-name' %><br><b>@ <%= show.venue %></b><br>
+        <td width="200"><%= link_to show.name, show, :class => 'show-name' %><br><b>@ <%= show.venue %></b><br>
             <%= show.address %> <%= '(' + show.area + ')' if !show.area.blank? %><br><%= show.city %>, <%= show.state %> <%= show.zip %>
             <% if show.country != 'United States' %>
               <br><%= show.country %>
             <% end %>
           </td>   
-        <td nowrap>
+        <td width="200">
           <% if show.frequency(:id) != 1 %>
             <%= show.frequency %> <%= show.day %> of the month
           <% else %>
@@ -35,7 +35,7 @@
           <br>
           <%= show.start_time.strftime("%l:%M %p") if show.start_time %> <%= ' to' + show.end_time.strftime("%l:%M %p") if show.end_time %>
         </td>             
-        <td><ul class="booking-info-list">
+        <td width="150"><ul class="booking-info-list">
             <li><%= show.show_type %> <% if show.show_type(:id) == 1 %>/ Signup at <%= show.signup_time.strftime("%l:%M %p") %><% end %></li>
             <% if show.charge.size > 0 %><li>Cost to perform: <%= show.charge %></li><% end %>
             <% if show.notes.size > 0 %><li><%= show.notes %></li><% end %>
@@ -48,8 +48,10 @@
               <% end %>
             </li>
           </ul></td> 
-        <td><%= link_to 'website', show.web_site if !show.web_site.blank? %> <%= link_to 'facebook', show.facebook_link if !show.facebook_link.blank? %> <%=  link_to 'twitter', 'http://twitter.com/' + show.twitter_name if !show.twitter_name.blank? %></td>  
-        <td nowrap>
+        <td width="1">
+          <%= render "shared/social_icons", :show => show %>  
+        </td>  
+        <td width="120">
            
           <%= time_ago_in_words(show.verified_at) %> ago by<br>
           <% if show.verifications.last %>
