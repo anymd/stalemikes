@@ -51,7 +51,7 @@
         <td><%= link_to 'website', show.web_site if !show.web_site.blank? %> <%= link_to 'facebook', show.facebook_link if !show.facebook_link.blank? %> <%=  link_to 'twitter', 'http://twitter.com/' + show.twitter_name if !show.twitter_name.blank? %></td>  
         <td nowrap>
            
-          <%= time_ago_in_words(show.verified_at) %> ago by 
+          <%= time_ago_in_words(show.verified_at) %> ago by<br>
           <% if show.verifications.last %>
             <%= link_to show.verifications.last.user.name, 'http://facebook.com/' + show.verifications.last.user.uid %>
           <% else %>
@@ -60,7 +60,7 @@
           <% if show.verified_at > DateTime.now - 1.month %>
             <%= image_tag 'fresh.png', :width => 60 %>
           <% else %>
-            <div class="still-happening-text">Is this show still happening?<br><br><%=  link_to_modal "VERIFY IT", "#verify-" + show.id.to_s, :class=>"button" %> <br><br></div>
+            <div class="still-happening-text">Is this show<br>still happening?<br><br><%=  link_to_modal "VERIFY IT", "#verify-" + show.id.to_s, :class=>"button" %> <br><br></div>
           <% end %>
         </td> 
       </tr> 
