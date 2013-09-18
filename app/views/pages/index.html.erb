@@ -8,10 +8,11 @@ This site is for comedians seeking stagetime.  Anyone can help keep it up to dat
 
 <%= render 'pages/filter' %>
 
-<% if params[:view] == 'grid' %>
-  <div id="show-box">
-   <%= render 'shared/shows' %>
-  </div>
+<% case params[:view] %>
+<% when "grid" %>
+  <div id="show-box"><%= render 'shared/shows' %></div>
+<% when "calendar" %>
+  <%= render 'shared/calendar' %>
 <% else %>
   <%= render 'shared/show_list' %>
 <% end %>

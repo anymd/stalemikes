@@ -12,7 +12,7 @@
   </tr>
   <tr>
     <% 7.times do |day| %>
-      <% these = Show.where(:day => day + 1, :metro_area_id => params[:metro]) %>
+      <% these = Show.where(:day => day + 1, :metro_area_id => params[:metro]).order('verified_at DESC') %>
     <td>
       <% these.each do |s| %>
         <b><%= link_to s.name, s %></b><br>

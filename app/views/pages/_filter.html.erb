@@ -17,17 +17,17 @@ $(document).ready(function(){
     <div class="view"> 
       View
       <select id="view" name="view" onchange="this.form.submit();">
-        <option value="list">List</option>
-        <option value="grid"
-        <% if params[:view] == 'grid' %> selected<% end %>>Grid</option>
-        <option value="calendar">Calendar</option>
+        <% views = %w[List Grid Calendar] %>
+        <% views.each do |view| %>
+          <option value='<%= view.downcase %>' <% if params[:view].capitalize == view %>selected<% end %>><%= view %></option>
+        <% end %>
       </select>  
     </div>
 
     <div class="metro-area"> 
       Metro Area
       <select id="metro" name="metro" onchange="this.form.submit();">
-        <option value="">Any</option>
+        <% if params[:view] != 'calendar' %><option value="">Any</option><% end %>
         <% @metro_areas.each do |metro_area| %>
           <option value="<%= metro_area.id %>" 
             <% if params[:metro].to_s == metro_area.id.to_s %>
@@ -38,6 +38,7 @@ $(document).ready(function(){
       </select>  
     </div>
 
+  <% if params[:view] != 'calendar' %>
     <div class="day"> 
       Day 
       <select id="day" name="day" onchange="this.form.submit();">
@@ -77,6 +78,8 @@ $(document).ready(function(){
       include <span style="font-size: 12px">ON HIATUS, and CANCELLED</span>
         
     </div> -->
+
+  <% end %>
 
   </form>
 </div>

@@ -1,4 +1,4 @@
-notes:
+
 
 issues:
 
@@ -17,8 +17,6 @@ allow show lister to mark if show is no longer active, which should hide it from
 change updated_at to something else so verification isn't based on small changes, user should have to explicitly verify show is still active
 
 allow only creator to enter historical notes about the show
-
-add change history
 
 allow admin to do anything
 

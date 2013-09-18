@@ -6,6 +6,11 @@ helper :all
     conditions = { :verified_at => (DateTime.now - 6.months)..(DateTime.now)}
     conditions[:metro_area_id] = params[:metro] unless params[:metro].blank?
     conditions[:day] = params[:day] unless params[:day].blank?
+    
+    if params[:view] == 'calendar' && params[:metro].blank?
+      params[:metro] = 1
+    end
+
     if params[:status] == 'all' 
     else
       conditions[:status] = [1]
