@@ -30,6 +30,9 @@ class Show < ActiveRecord::Base
   def include_end_time
   end
 
+  def gmaps4rails_address
+  end
+
   def fresh?
     self.verified_at > Time.now - 4.weeks
   end
