@@ -34,6 +34,10 @@ class Show < ActiveRecord::Base
     "#{self.address}, #{self.city}, #{self.state}, #{self.zip}, #{self.country}"
   end
 
+  # def gmaps4rails_title
+  #   "hi"
+  # end
+
   def fresh?
     self.verified_at > Time.now - 4.weeks
   end
