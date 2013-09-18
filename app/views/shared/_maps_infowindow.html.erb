@@ -1,0 +1,19 @@
+<%= link_to show.name, show_path(show) %><br>
+@ <%= show.venue %><br>
+<%= show.address %><br>
+<%= show.city %>, <%= show.state %> <%= show.zip %><br>
+<%= show.country %><br>
+
+<ul>
+  <li><%= show.start_time.strftime("%l:%M %p") %><%= ' to ' + show.end_time.strftime("%l:%M %p") unless show.end_time == nil %>
+  </li>
+  <li>
+    <%= show.show_type %> <% if show.show_type(:id) == 1 %> (signup at <%= show.signup_time.strftime("%l:%M %p") %>)<% end %>
+  </li>
+  <li>
+    <% if show.frequency(:id) != 1 %>
+      <%= show.frequency %> <%= show.day %> of the month
+    <% else %>
+      <%= show.frequency %> on <%= show.day.pluralize %> 
+    <% end %>
+  </li>

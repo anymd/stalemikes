@@ -13,6 +13,8 @@ This site is for comedians seeking stagetime.  Anyone can help keep it up to dat
   <div id="show-box"><%= render 'shared/shows' %></div>
 <% when "calendar" %>
   <%= render 'shared/calendar' %>
+<% when "map" %>
+  <%= render 'shared/map' %>
 <% else %>
   <%= render 'shared/show_list' %>
 <% end %>

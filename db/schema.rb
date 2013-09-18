@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130907111623) do
+ActiveRecord::Schema.define(:version => 20130918054712) do
 
   create_table "histories", :force => true do |t|
     t.text     "set_attributes"
@@ -58,6 +58,9 @@ ActiveRecord::Schema.define(:version => 20130907111623) do
     t.integer  "status"
     t.datetime "start_date"
     t.string   "area"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
   end
 
   create_table "users", :force => true do |t|

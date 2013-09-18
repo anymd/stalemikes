@@ -25,6 +25,8 @@ class Show < ActiveRecord::Base
 
   validates :name, :venue, :address, :city, :state, :zip, :country, :day, :frequency, :show_type, :start_time, :metro_area_id, :verified_at, :status, :metro_area, :presence => true  
 
+  acts_as_gmappable
+
   def include_end_time
   end
 

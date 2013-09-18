@@ -18,6 +18,9 @@ helper :all
     conditions[:show_type] = params[:type] unless params[:type].blank?
     @shows = Show.find(:all, :conditions => conditions, :order => 'verified_at DESC')
     @metro_areas = MetroArea.all
+    @json = @shows.to_gmaps4rails do |show, marker|
+      marker.infowindow render_to_string(:partial => "shared/maps_infowindow", :locals => { :show => show})
+    end
   end
 
   def filter

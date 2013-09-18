@@ -43,7 +43,7 @@ gem 'rails', '3.2.12'
 
 gem 'pg'
 
-
+gem 'gmaps4rails'
 gem 'masonry-rails'
 gem "filepicker-rails", git: "git://github.com/maxtilford/filepicker-rails.git"
 gem 'active_enum'

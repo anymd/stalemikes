@@ -17,7 +17,7 @@ $(document).ready(function(){
     <div class="view"> 
       View
       <select id="view" name="view" onchange="this.form.submit();">
-        <% views = %w[list grid calendar] %>
+        <% views = %w[list grid map calendar] %>
         <% views.each do |view| %>
           <option value='<%= view %>' <% if params[:view] == view %>selected<% end %>><%= view.capitalize %></option>
         <% end %>
