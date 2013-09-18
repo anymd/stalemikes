@@ -31,6 +31,7 @@ class Show < ActiveRecord::Base
   end
 
   def gmaps4rails_address
+    "#{self.venue}, #{self.address}, #{self.city}, #{self.state}, #{self.zip}, #{self.country}"
   end
 
   def fresh?
