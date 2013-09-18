@@ -19,7 +19,7 @@ $(document).ready(function(){
       <select id="view" name="view" onchange="this.form.submit();">
         <% views = %w[List Grid Calendar] %>
         <% views.each do |view| %>
-          <option value='<%= view.downcase %>' <% if params[:view].capitalize == view %>selected<% end %>><%= view %></option>
+          <option value='<%= view.downcase %>' <% if params[:view] == view %>selected<% end %>><%= view.capitalize %></option>
         <% end %>
       </select>  
     </div>
