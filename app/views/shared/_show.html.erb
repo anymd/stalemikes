@@ -68,7 +68,7 @@
         <td>
         	<ul class="booking-info-list">
         		<li><%= show.show_type %> <% if show.show_type(:id) == 1 %>/ Signup at <%= show.signup_time.strftime("%l:%M %p") %><% end %></li>
-						<% if show.charge.size > 0 %><li>Cost to perform: <%= show.charge %></li><% end %>
+						<% if !show.price.blank? %><li>Cost to perform: <%= show.price %></li><% end %>
 						<% if show.notes.size > 0 %><li><%= show.notes %></li><% end %>
 
             <li>
@@ -88,9 +88,9 @@
           <%= render "shared/social_icons", :show => show %>
         </td>
       </tr><% end %>
-      <% if show.price.size > 0 %><tr>
+      <% if !show.charge.blank? %><tr>
         <th nowrap>Price / Tickets</td>
-        <td><%= show.price %></td>
+        <td><%= show.charge %></td>
       </tr><% end %>
       <% if show.host_name.size > 0 %><tr>
         <th nowrap>Hosted by</td>
