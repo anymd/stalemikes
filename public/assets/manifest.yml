@@ -25,6 +25,8 @@ fresh2.jpg: fresh2-214e12b0a1678e2f87fb07da04615fa9.jpg
 fresh2/index.jpg: fresh2-214e12b0a1678e2f87fb07da04615fa9.jpg
 logo.png: logo-6ea633e7252c7449b90aa6ecccadea2e.png
 logo/index.png: logo-6ea633e7252c7449b90aa6ecccadea2e.png
+logo_fb.png: logo_fb-bfbc3b952fd9297857e689f8a1542b68.png
+logo_fb/index.png: logo_fb-bfbc3b952fd9297857e689f8a1542b68.png
 rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 stale.jpg: stale-95a135633236948a31e8b88be532211f.jpg
@@ -33,8 +35,8 @@ twitter.png: twitter-9ee8d94cebf82f8a9c64efdb50bef5bb.png
 twitter/index.png: twitter-9ee8d94cebf82f8a9c64efdb50bef5bb.png
 website.png: website-ccfefa71cc796b769921f8c2b2cf85d7.png
 website/index.png: website-ccfefa71cc796b769921f8c2b2cf85d7.png
-application.js: application-98071c482243b8310820eddb200f3af8.js
-application/index.js: application-98071c482243b8310820eddb200f3af8.js
+application.js: application-30b23ab6bd8c67f773fcf486d9703bef.js
+application/index.js: application-30b23ab6bd8c67f773fcf486d9703bef.js
 application.css: application-d62bdfa13e0cb3f9a34b037cd69956cf.css
 application/index.css: application-d62bdfa13e0cb3f9a34b037cd69956cf.css
 jquery.min.map: jquery.min-6c267bfd2b3f36e6edccb2e584934c1c.map
