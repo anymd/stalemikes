@@ -37,7 +37,7 @@
         </td>             
         <td width="150"><ul class="booking-info-list">
             <li><%= show.show_type %> <% if show.show_type(:id) == 1 %>/ Signup at <%= show.signup_time.strftime("%l:%M %p") %><% end %></li>
-            <% if show.charge.size > 0 %><li>Cost to perform: <%= show.charge %></li><% end %>
+            <% if !show.price.blank? %><li>Cost to perform: <%= show.price %></li><% end %>
             <% if show.notes.size > 0 %><li><%= show.notes %></li><% end %>
 
             <li>
