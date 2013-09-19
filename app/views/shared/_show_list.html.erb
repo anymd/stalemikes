@@ -44,7 +44,7 @@
               <% if show.user.admin? %>
                 Listed by Stale Mikes<br><span class='small-text'><%= link_to 'message us', 'http://facebook.com/stalemikes', :class => 'small-text' %>  if you are the organizer</span>
               <% else %>
-                Organized by <%= show.user.name %>
+                Organized by <%= link_to show.user.name, 'http://facebook.com/' + show.user.uid %>
               <% end %>
             </li>
           </ul></td> 
