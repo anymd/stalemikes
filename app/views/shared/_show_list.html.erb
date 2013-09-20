@@ -47,6 +47,8 @@
                 Organized by <%= link_to show.user.name, 'http://facebook.com/' + show.user.uid %>
               <% end %>
             </li>
+            <li><b><%= link_to 'more info', show_path(show) %></b> | 
+              <b><%= link_to 'comments', show_path(show) %></b></li>
           </ul></td> 
         <td width="1">
           <%= render "shared/social_icons", :show => show %>  
