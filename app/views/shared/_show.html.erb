@@ -111,9 +111,9 @@
     <%= image_tag 'http://maps.googleapis.com/maps/api/staticmap?markers=color:green%7C' + show.address + show.city + show.state + show.country + show.zip.to_s + '&zoom=13&size=460x140&maptype=roadmap&sensor=false' %>
   </div>
 
-  <div class="comments">Comments</div>
-  <div class="fb-comments" data-href="stalemikes.com/shows/<%= @show.id %>" data-width="460"></div>
-
 </div>
+
+  <div class="comments">Comments<br><br>
+  <div class="fb-comments" data-href="stalemikes.com/shows/<%= @show.id %>" data-width="460"></div></div>
 
 <%= render 'shared/verify_it', :show => show %>
