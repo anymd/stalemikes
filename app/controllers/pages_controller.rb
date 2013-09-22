@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
 
+skip_filter :verify_authenticity_token, :only => :filter
+
 helper :all
 
   def index
@@ -29,7 +31,7 @@ helper :all
     day = params[:day]
     type = params[:type]
     not_active = params[:not_active]
-    redirect_to :controller => 'pages', :action => 'index', :view => view, :metro => metro, :day => day, :type => type, :not_active => not_active, :session => session, :current_user => current_user
+    redirect_to :controller => 'pages', :action => 'index', :view => view, :metro => metro, :day => day, :type => type, :not_active => not_active
   end
 
 end 
