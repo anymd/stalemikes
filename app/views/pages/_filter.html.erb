@@ -14,16 +14,14 @@ $(document).ready(function(){
 
 <div class="filter">
   <form name="input" action="filter" method="post">
-
     <div class="view">
         <% views = %w[list grid map calendar] %>
-        <% icons = %w[bars th map-marker calendar ] %>        
+        <% icons = %w[bars th map-marker calendar] %>        
         <% views.each_with_index do |view, i| %>
-        <label class="view" for="<%= view %>">
-          <input id="<%= view %>" type="radio" name="view" value="<%= view %>" onchange="this.form.submit();" <% if params[:view] == view %>checked<% end %>>
+        <label class="view" for="<%= view %>-id">
+          <input id="<%= view %>-id" type="radio" name="view" value="<%= view %>" onchange="this.form.submit();" <% if params[:view] == view %>checked<% end %>>
           <i class="fa fa-<%= icons[i] %> fa-2x"></i>
-        </label>    
-
+        </label>   
         <% end %>
     </div>
 
@@ -87,4 +85,3 @@ $(document).ready(function(){
   </form>
 </div>
 <br>
-
