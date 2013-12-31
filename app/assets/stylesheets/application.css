@@ -94,6 +94,10 @@ a {
   margin-bottom: 5px;
 }
 
+.show-name-div {
+  margin-bottom: 8px;
+}
+
 .show-venue {
   font-weight: bold;
   font-size: 12px;

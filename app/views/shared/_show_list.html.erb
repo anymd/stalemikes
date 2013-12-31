@@ -18,7 +18,7 @@
     <tbody>
     <% @shows.each do |show| %>
       <tr> 
-        <td width="200"><%= link_to show.name, show, :class => 'show-name' %><br><b>@ <%= show.venue %></b><br>
+        <td width="200"><div class="show-name-div"><%= link_to show.name, show, :class => 'show-name' %></div><b><%= show.venue %></b><br>
             <%= show.address %> <%= '(' + show.area + ')' if !show.area.blank? %><br><%= show.city %>, <%= show.state %> <%= show.zip %>
             <% if show.country != 'United States' %>
               <br><%= show.country %>
