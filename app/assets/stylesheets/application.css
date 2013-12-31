@@ -21,7 +21,7 @@
 
 body {
   margin: 0px;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: Georgia, "Helvetica Neue", Arial, sans-serif;
   background-color: #efefef;
 }
 
@@ -71,11 +71,15 @@ body {
 
 .menu {
   float: right;
+  margin-right: 30px;
 }
 
 .menu li {
   display: inline;
-  padding-left: 10px;
+  padding-left: 20px;
+  font-family: Helvetica;
+  font-size: 16px;
+  font-weight: normal;
 }
 
 .show-name {
@@ -110,11 +114,16 @@ body {
 }
 
 .logo {
-  font-size: 34px;
+  font-size: 38px;
   line-height: 30px;
   float: left;
-  margin-top: 5px;
+  margin: 5px;
   color: #E6EFEE;
+  font-family: 'Denk One';
+}
+
+.microphone {
+  color: orange;
 }
 
 .booking-info-list {
@@ -145,15 +154,19 @@ body {
 
 .container {
   clear: both;
+  margin-top: 50px;
+  padding: 40px;
 }
 
 #header {
   background-color: #4E4E4E;
-  height: 66px;
 	font-size: 13px;
   color: white;
   padding: 10px;
-  border-bottom: 5px solid #E6EFEE;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 
 #header a {
