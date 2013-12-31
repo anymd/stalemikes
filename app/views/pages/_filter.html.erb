@@ -19,7 +19,8 @@ $(document).ready(function(){
         <% icons = %w[bars th map-marker calendar] %>        
         <% views.each_with_index do |view, i| %>
         <label class="view" for="<%= view %>-id">
-          <input id="<%= view %>-id" type="radio" name="view" value="<%= view %>" onchange="this.form.submit();" <% if params[:view] == view %>checked<% end %>>
+          <input id="<%= view %>-id" type="radio" name="view" value="<%= view %>" onchange="this.form.submit();" <% if params[:view] == view %>checked<% end %>
+          <% if params[:view] == nil && i == 0 %>checked<% end %>>
           <i class="fa fa-<%= icons[i] %> fa-2x"></i>
         </label>   
         <% end %>

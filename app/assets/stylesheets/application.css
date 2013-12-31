@@ -21,13 +21,17 @@
 
 body {
   margin: 0px;
-  font-family: Georgia, "Helvetica Neue", Arial, sans-serif;
+  font-family: Verdana, "Helvetica Neue", Arial, sans-serif;
   background-color: #efefef;
+}
+
+a {
+  color: #5C76B4;
 }
 
 .container {
   clear: both;
-  margin-top: 50px;
+  margin-top: 30px;
   padding: 60px;
 }
 
