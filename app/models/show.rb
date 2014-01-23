@@ -1,6 +1,7 @@
 class Show < ActiveRecord::Base
   include ActionView::Helpers::SanitizeHelper
   before_save :remove_html
+  after_save :flush_cache
 
   attr_accessible :name, :venue, :address, :city, :state, :zip, :country, :web_site, :facebook_link, :twitter_name, :phone, :day, :frequency, :show_type, :signup_time, :start_time, :end_time, :host_name, :price, :notes, :user_id, :status, :metro_area_id, :updated_at, :charge, :filepicker_url, :verified_at, :status, :start_date, :area
 
@@ -23,7 +24,7 @@ class Show < ActiveRecord::Base
   enumerate :day
   enumerate :status
 
-  validates :name, :venue, :address, :city, :state, :zip, :country, :day, :frequency, :show_type, :start_time, :metro_area_id, :verified_at, :status, :metro_area, :presence => true  
+  validates :name, :venue, :address, :city, :state, :zip, :country, :day, :frequency, :show_type, :start_time, :metro_area_id, :verified_at, :metro_area, :presence => true  
 
   acts_as_gmappable
 
@@ -34,12 +35,12 @@ class Show < ActiveRecord::Base
     "#{self.address}, #{self.city}, #{self.state}, #{self.zip}, #{self.country}"
   end
 
-  # def gmaps4rails_title
-  #   "hi"
-  # end
-
   def fresh?
     self.verified_at > Time.now - 4.weeks
+  end
+
+  def flush_cache
+    Rails.cache.delete('shows')
   end
 
   protected

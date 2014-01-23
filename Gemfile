@@ -50,6 +50,8 @@ gem 'active_enum'
 gem 'simple_form'
 gem "combined_time_select"
 
+gem 'dalli'
+gem 'rack-mini-profiler'
 
 # Gems used only for assets and not required
 # in production environments by default.

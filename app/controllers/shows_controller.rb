@@ -2,6 +2,7 @@ class ShowsController < ApplicationController
 
 	before_filter :find_show, :only => [:show, :edit, :update, :destroy]
   before_filter :default_image, :only => [:update]
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_show
   
   def new
   	@show = Show.new
@@ -90,6 +91,11 @@ class ShowsController < ApplicationController
 
   def find_show
   	@show = Show.find(params[:id])
+  end
+
+  def invalid_show
+    logger.error "Attempt to access invalid show #{params[:id]}"
+    redirect_to root_path, notice: 'No such show exists'
   end
 
 end
