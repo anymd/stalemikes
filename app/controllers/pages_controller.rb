@@ -20,9 +20,9 @@ helper :all
     end
     conditions[:show_type] = params[:type] unless params[:type].blank?
 
-    # @shows = Show.find(:all, :conditions => conditions, :order => 'verified_at DESC', :include => [:user, :verifications])
+    @shows = Show.find(:all, :conditions => conditions, :order => 'verified_at DESC', :include => [:user, :verifications])
 
-    @shows = Rails.cache.fetch('shows', :expires_in => 24.hours) { Show.find(:all, :conditions => conditions, :order => 'verified_at DESC', :include => [:user, :verifications]) }
+    # @shows = Rails.cache.fetch('shows', :expires_in => 24.hours) { Show.find(:all, :conditions => conditions, :order => 'verified_at DESC', :include => [:user, :verifications]) }
     
     @metro_areas = MetroArea.all
     @json = @shows.to_gmaps4rails do |show, marker|
